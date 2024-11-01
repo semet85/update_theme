@@ -5,7 +5,7 @@ Welcome to the PortalJS family! 🎉 We are delighted to have you join us.
 Your Registration Details:
 
     Username: {{ user_name }}
-    Role: {{ role_name }}
+    Role: Admin
     Organization: {{ group_title }}
 
 Get Started:
