@@ -1,0 +1,23 @@
+Dear {{ user_name }},
+
+Welcome to the PortalJS family! 🎉 We are delighted to have you join us.
+
+Your Registration Details:
+
+    Username: {{ user_name }}
+    Role: {{ role_name }}
+    Organization: {{ group_title }}
+
+Get Started:
+
+    Chat with Us on Discord: Connect with our community <a href="https://discord.com/invite/KrRzMKU">here</a>.
+    Visit Our Website: Learn more at <a href="https://www.portaljs.com/">www.portaljs.com</a>.
+    Access Your Portal: Reach your portal <a href="https://cloud.portaljs.com/">here</a>.
+
+If you have any questions or need assistance, please do not hesitate to contact us.
+
+Once again, a heartfelt welcome aboard! Here's to new beginnings and building amazing things together.
+
+Warm regards,
+The PortalJS Team
+Built with 🧡 by Datopian
