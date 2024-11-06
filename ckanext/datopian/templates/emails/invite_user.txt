@@ -1,12 +1,15 @@
 Dear {{ user_name }},
 
-We’re thrilled to welcome you to {{ site_title }}! Your account has been created and you’re all set to join our community. If you’d prefer something different, you can easily change it later.
-
 You’ve been added to the {{ group_type }} {{ group_title }} with the role of {{ role_name }}.
 
-If you have any questions or need assistance getting started, just give us a shout - we’re always here to help.
+Click below to complete your registration—you can also change your username during setup:
 
-We’re so glad to have you with us!
+<a href="{{ reset_link }}">{{ reset_link }}</a>
 
-Take care,
-The {{ site_title }} Team
+For any questions, contact us at support@datopian.com.
+
+Welcome aboard – we’re so glad to have you with us!
+
+
+Warm regards,
+The PortalJS Team
