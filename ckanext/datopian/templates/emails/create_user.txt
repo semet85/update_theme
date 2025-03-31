@@ -3,18 +3,16 @@ Dear {{ user_name }},
 Welcome to the PortalJS family! 🎉 We are delighted to have you join us.
 
 Your Registration Details:
-<ul>
-    <li>Username: {{ user_name }}</li>
-    <li>Organization: {{ group_title }}</li>
-</ul>
+- Username: {{ user_name }}
+- Organization: {{ group_title }}
+
 Get Started:
-<ul>
-    <li><b>Chat with Us on Discord</b>: Connect with our community <a href="https://discord.com/invite/KrRzMKU">here</a>.</li>
-    <li><b>Visit Our Website</b>: Learn more at <a href="https://www.portaljs.com/">www.portaljs.com</a>.</li>
-    <li><b>Access Your Portal</b>: Reach your portal <a href="https://cloud.portaljs.com/">here</a>.</li>
-</ul>
+- Chat with Us on Discord: Connect with our community here: https://discord.com/invite/KrRzMKU
+- Visit Our Website: Learn more at https://www.portaljs.com/
+- Access Your Portal: Reach your portal here: https://cloud.portaljs.com/
+
 If you have any questions or need assistance, please do not hesitate to contact us.
 
-Warm regards,
-The PortalJS Team
-<i>Built with 🧡 by Datopian</i>
+Warm regards,  
+The PortalJS Team  
+Built with 🧡 by Datopian

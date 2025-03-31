@@ -1,0 +1,25 @@
+Hi {{ user_name }},
+
+I’m Lucas from PortalJS, and I wanted to personally welcome you! You’re officially set up on PortalJS Cloud! No long setups, no infrastructure headaches - just log in, upload data, and your portal is live.
+
+Here’s what you can do right now:
+
+✅ Upload datasets → Instantly see your portal LIVE
+✅ Customize branding (logo, fonts, colors, advanced design)
+✅ Leverage 50GB storage & priority support
+✅ Contact us to tailor your setup!
+
+This is what makes PortalJS Cloud unique - you get a powerful data portal in minutes, not weeks.
+
+Need a real-world example? London Borough of Hounslow is using PortalJS to power their open data strategy:
+👉 Check out the Hounslow Portal: https://data.hounslow.gov.uk/
+
+🔹 Ready to start? 👉 Go to your dashboard: https://cloud.portaljs.com
+
+Questions? Reply to this email or book a quick call:
+📞 Book a quick call with me: https://calendar.app.google/i1H9Wtev4yp8sRV98
+
+Looking forward to seeing what you build!
+
+Cheers,
+Lucas from PortalJS Team

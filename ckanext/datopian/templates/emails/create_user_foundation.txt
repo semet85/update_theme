@@ -1,0 +1,25 @@
+Hi {{ user_name }},
+
+I’m Lucas from PortalJS, and I’m excited to welcome you aboard! You’re all set to experience the fastest way to build a live data portal - no setup, no coding, no hassle.
+
+Here’s what you can do right now:
+
+  Upload your datasets → See your portal LIVE in minutes
+  Explore built-in data previews (CSV, Excel, JSON, etc.)
+  Collaborate with your team effortlessly
+  Want to customize your portal? Contact us for branding & advanced features!
+
+No other tool makes it this easy. Just log in, upload data, and your portal is live - instantly.
+
+Need inspiration? See how London Borough of Hounslow built their data portal with PortalJS:
+👉 Check out the Hounslow Portal: https://data.hounslow.gov.uk/
+
+🔹 Ready to start? 👉 Go to your dashboard: https://cloud.portaljs.com
+
+Questions? Reply to this email or book a quick call:
+📞 Book a quick call with me: https://calendar.app.google/i1H9Wtev4yp8sRV98
+
+Looking forward to seeing what you build!
+
+Cheers,
+Lucas from PortalJS Team

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invite User</title>
+</head>
+
+<body>
+  <p>Dear {{ user_name }},</p>
+
+  <p>You’ve been added to the {{ group_type }} {{ group_title }} with the role of {{ role_name }}.</p>
+
+  <p>Click below to complete your registration—you can also change your username during setup:</p>
+
+  <p><a href="{{ reset_link }}">{{ reset_link }}</a></p>
+
+  <p>For any questions, contact us at support@datopian.com.</p>
+
+  <p>Welcome aboard – we’re so glad to have you with us!</p>
+
+  <p>Warm regards,<br>
+    The PortalJS Team</p>
+</body>
+
+</html>

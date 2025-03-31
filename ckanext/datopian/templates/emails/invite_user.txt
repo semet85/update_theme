@@ -4,12 +4,11 @@ You’ve been added to the {{ group_type }} {{ group_title }} with the role of {
 
 Click below to complete your registration—you can also change your username during setup:
 
-<a href="{{ reset_link }}">{{ reset_link }}</a>
+{{ reset_link }}
 
 For any questions, contact us at support@datopian.com.
 
 Welcome aboard – we’re so glad to have you with us!
-
 
 Warm regards,
 The PortalJS Team
