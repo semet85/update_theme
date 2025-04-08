@@ -1,0 +1,17 @@
+Hi {{ user_name }},
+
+Your PortalJS Cloud trial ends tomorrow, and your portal will go offline unless you upgrade. But why stop now? You already have a fully functional data portal up and running.
+
+🔹 Keep your portal running without interruption
+🔹 Unlock branding & customization options
+🔹 Need a custom domain? Upgrade, and we’ll set it up for you!
+
+Your trial ends tomorrow, but you can keep your portal live by upgrading today: https://www.portaljs.com/pricing?buy=true
+
+Have any questions before upgrading? Reply or book a call with me:
+📞 Book a time here: https://calendar.app.google/i1H9Wtev4yp8sRV98
+
+See you inside!
+
+Cheers,
+Lucas from PortalJS TEAM

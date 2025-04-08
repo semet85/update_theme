@@ -1,0 +1,18 @@
+Hi {{ user_name }},
+
+I hope you're enjoying PortalJS Cloud! You're halfway through your trial, and by now, you’ve likely seen how easy it is to get your data portal live.
+
+If you have any feedback, I’d love to hear your thoughts. And if you need any help setting up your portal, just let me know—I’m happy to guide you.
+
+Looking for inspiration? See how others are using PortalJS in our Showcase.
+
+Continue building your portal here:
+Go to your dashboard: https://cloud.portaljs.com
+
+If you’d like to chat, feel free to reply or book a quick call:
+📞 Schedule a call: https://calendar.app.google/i1H9Wtev4yp8sRV98
+
+Looking forward to seeing what you create!
+
+Cheers,
+Lucas from PortalJS Team

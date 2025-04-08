@@ -1,0 +1,16 @@
+Hi {{ user_name }},
+
+Your 14-day free trial has ended, and your portal is now on hold. But it’s still there, waiting for you. You can reactivate it anytime and keep all your data.
+
+✅ Restore your portal instantly
+✅ Keep all your data and customizations
+✅ Unlock premium features & support
+
+Just choose a plan, complete payment via Stripe, and your portal will be back online immediately.
+👉 https://www.portaljs.com/pricing
+
+Have questions? Just reply or book a call with me—I’d love to assist!
+📞 Book a time here: https://calendar.app.google/i1H9Wtev4yp8sRV98
+
+Cheers,
+Lucas from PortalJS Team
