@@ -74,7 +74,7 @@ To install ckanext-datopian for development, activate your CKAN virtualenv and
 do:
 
     git clone https://github.com/semet85/update_theme.git
-    cd ckanext-datopian
+    cd update_theme
     python setup.py develop
     pip install -r dev-requirements.txt
 
