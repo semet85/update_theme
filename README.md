@@ -77,6 +77,8 @@ do:
     cd update_theme
     python setup.py develop
     pip install -r dev-requirements.txt
+    apt update && apt install nano -y
+    exit
 
 
 ## Tests
