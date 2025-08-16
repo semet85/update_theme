@@ -74,10 +74,10 @@ img {
   }
 }
 .hero {
-  background: #fff url('/base/images/hero-bg.png') !important;
+  background: #fff url('/base/images/bupati.png') !important;
   background-size: auto 120% !important;
   background-repeat: no-repeat !important;
-  background-position: right top !important;
+  background-position: center top !important;
 }
 [role=main] {
   min-height: 400px;

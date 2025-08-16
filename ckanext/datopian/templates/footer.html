@@ -7,11 +7,11 @@
           
           <ul class="list-unstyled">
             {% block footer_links_ckan %}
-              {% set api_url = 'http://docs.ckan.org/en/{0}/api/'.format(g.ckan_doc_version) %}
-              <li><a href="{{ api_url }}">{{ _('CKAN API') }}</a></li>
-              <li><a href="https://datopian.com/about">{{ _('About Datopian') }}</a></li>
-              <li><a href="https://datopian.com" target="_blank">Built by Datopian <br/> <img src="{{ h.url_for_static('/base/images/datopian-logo.svg') }}" width="120" alt="Open Data"></a></li>
-              <li><a href="http://www.opendefinition.org/okd/" target="_blank"><img src="{{ h.url_for_static('/base/images/od_80x15_blue.png') }}" alt="Open Data"></a></li>
+              <!-- {% set api_url = 'http://docs.ckan.org/en/{0}/api/'.format(g.ckan_doc_version) %} -->
+              <!-- <li><a href="{{ api_url }}">{{ _('CKAN API') }}</a></li> -->
+              <li><a href="https://localhost:5000/about">{{ _('Tentang Satu Data ORAS') }}</a></li>
+              <li><a href="https://diskominfo.boltimkab.go.id" target="_blank">Built by Dinas Kominfo <br/> <img src="{{ h.url_for_static('/base/images/LOGOBG.png') }}" width="120" alt="Open Data"></a></li>
+              <li><a href="http://www.boltimkab.go.id" target="_blank"><img src="{{ h.url_for_static('/base/images/LOGO_BOLTIM_BANGKIT.png') }}" width="120" alt="Open Data"></a></li>
             {% endblock %}
           </ul>
         {% endblock %}
