@@ -73,12 +73,14 @@ None at present
 To install ckanext-datopian for development, activate your CKAN virtualenv and
 do:
 
+    docker compose exec -u root ckan bash
+    cd src
     git clone https://github.com/semet85/update_theme.git
     cd update_theme
     python setup.py develop
     pip install -r dev-requirements.txt
     apt update && apt install nano -y
-    exit
+    nano /srv/app/production.ini
 
 
 ## Tests
