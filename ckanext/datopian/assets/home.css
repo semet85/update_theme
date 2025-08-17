@@ -84,7 +84,8 @@ img {
     url('/base/images/bupati.png') center center no-repeat !important;
   background-size: contain !important;
   background-position: center center !important;
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 [role=main] {
   min-height: 400px;
@@ -112,7 +113,8 @@ img {
   background: #003164;
 }
 .site-footer {
-  margin-top: 0;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
   background: #1a1919;
 }
 .form-control {
