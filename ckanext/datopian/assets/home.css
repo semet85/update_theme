@@ -79,6 +79,12 @@ img {
   background-size: cover !important;
   background-position: center center !important;
 }
+.naruto {
+  background: 
+    url('/base/images/bupati.png') center center no-repeat !important;
+  background-size: cover !important;
+  background-position: center center !important;
+}
 [role=main] {
   min-height: 400px;
 }
