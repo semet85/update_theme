@@ -82,7 +82,7 @@ img {
 .naruto {
   background: 
     url('/base/images/bupati.png') center center no-repeat !important;
-  background-size: cover !important;
+  background-size: auto !important;
   background-position: center center !important;
 }
 [role=main] {
@@ -96,7 +96,6 @@ img {
 [role=main],
 .main {
   padding-top: 0;
-  padding-bottom: 0;
 }
 .masthead {
   background: #0861e6;
@@ -112,7 +111,7 @@ img {
   background: #003164;
 }
 .site-footer {
-  margin-top:150px;
+  margin-top:10px;
   background: #1a1919;
 }
 .form-control {
