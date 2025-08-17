@@ -1,5 +1,5 @@
 {% set tags = h.get_facet_items_dict('tags', c.search_facets, limit=3) %}
-{% set placeholder = _('Cari Data Set... Contoh: penduduk, kesehatan, pendidikan dll') %}
+{% set placeholder = _('Cari Dataset... Contoh: penduduk, kesehatan, pendidikan dll') %}
 
 <div class="module module-search module-narrow module-shallow box">
   <form class="module-content search-form" method="get" action="{% url_for 'dataset.search' %}">
