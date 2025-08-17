@@ -80,7 +80,7 @@ img {
   background-position: center center !important;
 }
 [role=main] {
-  min-height: 600px;
+  min-height: 400px;
 }
 @media only screen and (max-width: 768px) {
   [role=main] {
@@ -95,7 +95,7 @@ img {
   background: #0861e6;
 }
 .masthead .nav li a {
-  color: #525252;
+  color: #faf9f9;
 }
 .masthead .nav li a:hover {
   background: #003164;
@@ -106,7 +106,7 @@ img {
 }
 .site-footer {
   margin-top:150px;
-  background: #252424;
+  background: #1a1919;
 }
 .form-control {
   border-radius: 0;
