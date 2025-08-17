@@ -96,6 +96,7 @@ img {
 [role=main],
 .main {
   padding-top: 0;
+  padding-bottom: 0;
 }
 .masthead {
   background: #0861e6;
