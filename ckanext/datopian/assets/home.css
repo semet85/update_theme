@@ -113,9 +113,9 @@ img {
   background: #003164;
 }
 .site-footer {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-  background: #1a1919;
+  margin-top: 20px !important;
+  padding-top: 20px !important;
+  background: #1a1919 !important;
 }
 .form-control {
   border-radius: 0;
