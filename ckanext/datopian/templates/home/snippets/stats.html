@@ -2,7 +2,7 @@
 
 <div class="stats-wrapper">
   <div class="stats-card">
-    <h3>{{ _('{0} Statistik').format(g.site_title) }}</h3>
+    <h3>{{ _('Statistik Satu Data ORAS').format(g.site_title) }}</h3>
     <ul>
       <li>
         <a href="{{ h.url_for('dataset.search') }}">
@@ -15,7 +15,7 @@
         <a href="{{ h.url_for('organization.index') }}">
           <i class="fa fa-building icon"></i>
           <strong>{{ h.SI_number_span(stats.organization_count) }}</strong>
-          {{ _('organization') if stats.organization_count == 1 else _('organizations') }}
+          {{ _('OPD') if stats.organization_count == 1 else _('organizations') }}
         </a>
       </li>
       <li>
