@@ -1,28 +1,20 @@
-<div role="main">
-  <div class="main hero">
-    <div class="container">
-      <div class="row row1">
-        <div class="col-md-12">
-          {% block search %}
-            {% snippet 'home/snippets/search.html' %}
-          {% endblock %}
-        </div>
+<div role="main" class="hero">
+  <div class="container">
+    <div class="row row1">
+      <div class="col-md-12">
+        {% block search %}
+          {% snippet 'home/snippets/search.html' %}
+        {% endblock %}
       </div>
     </div>
   </div>
-
-
-  <div class="main naruto">
-    <div class="container">
-      <div class="row row2">
-        <div class="col-md-12">
-          <!-- <h2 class="heading" style="color: #130101;">{{ _('Tessss') }}</h2> -->
-          {% block search %}
-            {% snippet 'home/snippets/stats.html' %}
-          {% endblock %}
-        </div>
-      </div>
-    </div>
-  </div>  
 </div>
 
+<div role="main" class="naruto">
+  <div class="container">
+    <div class="row row1">
+      <div class="col-md-12">
+        <!-- <h2 class="heading" style="color: #130101;">{{ _('Tessss') }}</h2> -->
+      </div>
+    </div>
+  </div>
