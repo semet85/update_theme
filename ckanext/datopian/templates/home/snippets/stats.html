@@ -16,7 +16,7 @@
     <a href="{{ h.url_for('organization.index') }}" class="stat-card organization">
       <i class="fa fa-building icon"></i>
       <div class="stat-number">{{ h.SI_number_span(stats.organization_count) }}</div>
-      <div class="stat-label">{{ _('Organisasi') if stats.organization_count == 1 else _('Organisasi') }}</div>
+      <div class="stat-label">{{ _('OPD') if stats.organization_count == 1 else _('Organisasi') }}</div>
     </a>
 
     <!-- Kategori Card -->
@@ -30,6 +30,22 @@
 </div>
 
 <style>
+
+  /* Wrapper & title */
+display: flex;
+  flex-direction: column; /* agar title tetap di atas grid */
+  align-items: center;    /* center horizontal */
+  justify-content: center; /* center vertikal jika tinggi parent cukup */
+  min-height: 100vh;      /* supaya bisa center vertikal full screen */
+  text-align: center;      /* center teks jika perlu */
+}
+
+.stats-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #2c3e50;
+}
 
   .stats-grid {
   display: flex;
@@ -54,23 +70,7 @@
   text-decoration: none;
   transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
   box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
 
-/* Wrapper & title */
-display: flex;
-  flex-direction: column; /* agar title tetap di atas grid */
-  align-items: center;    /* center horizontal */
-  justify-content: center; /* center vertikal jika tinggi parent cukup */
-  min-height: 100vh;      /* supaya bisa center vertikal full screen */
-  text-align: center;      /* center teks jika perlu */
-}
-
-.stats-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 40px;
-  color: #2c3e50;
-}
 
 /* Grid - Horizontal */
 .stats-grid {
