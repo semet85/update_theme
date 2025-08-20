@@ -30,10 +30,39 @@
 </div>
 
 <style>
+
+  .stats-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+/* Semua card sama ukuran */
+.stat-card {
+  flex: 1;                /* agar semua card sama lebar */
+  max-width: 220px;       /* bisa disesuaikan */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 20px;
+  border-radius: 15px;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
 /* Wrapper & title */
-.stats-wrapper {
-  text-align: center;
-  margin: 50px 20px;
+display: flex;
+  flex-direction: column; /* agar title tetap di atas grid */
+  align-items: center;    /* center horizontal */
+  justify-content: center; /* center vertikal jika tinggi parent cukup */
+  min-height: 100vh;      /* supaya bisa center vertikal full screen */
+  text-align: center;      /* center teks jika perlu */
 }
 
 .stats-title {
