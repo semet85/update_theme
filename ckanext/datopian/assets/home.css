@@ -13,6 +13,10 @@
   height: 40px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
 .account.avatar.authed,
