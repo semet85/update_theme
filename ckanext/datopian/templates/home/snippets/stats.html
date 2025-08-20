@@ -1,16 +1,10 @@
 {% set stats = h.get_site_statistics() %}
 
-<div class="stats-wrapper">
-  <div class="stats-card">
-    <h3>{{ _('Statistik Satu Data ORAS').format(g.site_title) }}</h3>
-  </div>
-</div>
-
 <div class="stats-grid">
   <div class="stat-item dataset">
     <a href="{{ h.url_for('dataset.search') }}">
       <i class="fa fa-database icon"></i>
-      <strong class="counter" data-target="{{ stats.dataset_count }}">0</strong>
+      <strong>{{ h.SI_number_span(stats.dataset_count) }}</strong>
       <span>{{ _('dataset') if stats.dataset_count == 1 else _('datasets') }}</span>
     </a>
   </div>
@@ -18,17 +12,19 @@
   <div class="stat-item organization">
     <a href="{{ h.url_for('organization.index') }}">
       <i class="fa fa-building icon"></i>
-      <strong class="counter" data-target="{{ stats.organization_count }}">0</strong>
-      <span>{{ _('organisasi') if stats.organization_count == 1 else _('organisasi') }}</span>
+      <strong>{{ h.SI_number_span(stats.organization_count) }}</strong>
+      <span>{{ _('organisasi') if stats.organization_count == 1 else _('organizations') }}</span>
     </a>
   </div>
 
   <div class="stat-item category">
     <a href="{{ h.url_for('group.index') }}">
       <i class="fa fa-tags icon"></i>
-      <strong class="counter" data-target="{{ stats.group_count }}">0</strong>
-      <span>{{ _('kategori') if stats.group_count == 1 else _('kategori') }}</span>
+      <strong>{{ h.SI_number_span(stats.group_count) }}</strong>
+      <span>{{ _('kategori') if stats.group_count == 1 else _('groups') }}</span>
     </a>
+    {% endblock %}
   </div>
 </div>
-{% endblock %}
+
+

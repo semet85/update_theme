@@ -114,12 +114,30 @@
 .stat-item.dataset {
   background: #007BFF;
 }
+.stat-item.dataset .icon,
+.stat-item.dataset strong,
+.stat-item.dataset span {
+  color: #fff;
+}
+
 .stat-item.organization {
   background: #28a745;
 }
+.stat-item.organization .icon,
+.stat-item.organization strong,
+.stat-item.organization span {
+  color: #fff;
+}
+
 .stat-item.category {
   background: #fd7e14;
 }
+.stat-item.category .icon,
+.stat-item.category strong,
+.stat-item.category span {
+  color: #fff;
+}
+
 
 /* smpe disini*/
 
