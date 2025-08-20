@@ -1,55 +1,100 @@
 {% set stats = h.get_site_statistics() %}
 
-<div class="stats-wrapper" style="text-align:center; margin: 40px 0;">
-  <h2 style="font-weight:700; font-size:2rem; margin-bottom:30px;">
-    Statistik Satu Data ORAS
-  </h2>
+<div class="stats-wrapper">
+  <h2 class="stats-title">Statistik Satu Data ORAS</h2>
 
-  <div class="stats-grid" style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+  <div class="stats-grid">
 
     <!-- Dataset Card -->
-    <div class="stat-card" style="flex:1 1 200px; max-width:250px; background-color:#3498db; color:white; border-radius:12px; padding:20px; text-align:center; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
-      <a href="{{ h.url_for('dataset.search') }}" style="text-decoration:none; color:white;">
-        <i class="fa fa-database" style="font-size:4rem; margin-bottom:15px;"></i>
-        <div style="font-size:2rem; font-weight:bold;">
-          {{ h.SI_number_span(stats.dataset_count) }}
-        </div>
-        <div style="font-size:1.5rem; font-weight:600;">
-          {{ _('Dataset') if stats.dataset_count == 1 else _('Datasets') }}
-        </div>
-      </a>
-    </div>
+    <a href="{{ h.url_for('dataset.search') }}" class="stat-card dataset">
+      <i class="fa fa-database icon"></i>
+      <div class="stat-number">{{ h.SI_number_span(stats.dataset_count) }}</div>
+      <div class="stat-label">{{ _('Dataset') if stats.dataset_count == 1 else _('Datasets') }}</div>
+    </a>
 
     <!-- Organisasi Card -->
-    <div class="stat-card" style="flex:1 1 200px; max-width:250px; background-color:#2ecc71; color:white; border-radius:12px; padding:20px; text-align:center; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
-      <a href="{{ h.url_for('organization.index') }}" style="text-decoration:none; color:white;">
-        <i class="fa fa-building" style="font-size:4rem; margin-bottom:15px;"></i>
-        <div style="font-size:2rem; font-weight:bold;">
-          {{ h.SI_number_span(stats.organization_count) }}
-        </div>
-        <div style="font-size:1.5rem; font-weight:600;">
-          {{ _('OPD') if stats.organization_count == 1 else _('Organisasi') }}
-        </div>
-      </a>
-    </div>
+    <a href="{{ h.url_for('organization.index') }}" class="stat-card organization">
+      <i class="fa fa-building icon"></i>
+      <div class="stat-number">{{ h.SI_number_span(stats.organization_count) }}</div>
+      <div class="stat-label">{{ _('OPD') if stats.organization_count == 1 else _('Organisasi') }}</div>
+    </a>
 
     <!-- Kategori Card -->
-    <div class="stat-card" style="flex:1 1 200px; max-width:250px; background-color:#f1c40f; color:white; border-radius:12px; padding:20px; text-align:center; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
-      <a href="{{ h.url_for('group.index') }}" style="text-decoration:none; color:white;">
-        <i class="fa fa-tags" style="font-size:4rem; margin-bottom:15px;"></i>
-        <div style="font-size:2rem; font-weight:bold;">
-          {{ h.SI_number_span(stats.group_count) }}
-        </div>
-        <div style="font-size:1.5rem; font-weight:600;">
-          {{ _('Kategori') if stats.group_count == 1 else _('Kategori') }}
-        </div>
-      </a>
-    </div>
+    <a href="{{ h.url_for('group.index') }}" class="stat-card category">
+      <i class="fa fa-tags icon"></i>
+      <div class="stat-number">{{ h.SI_number_span(stats.group_count) }}</div>
+      <div class="stat-label">{{ _('Kategori') if stats.group_count == 1 else _('Kategori') }}</div>
+    </a>
 
   </div>
 </div>
 
 <style>
+/* Wrapper & title */
+.stats-wrapper {
+  text-align: center;
+  margin: 50px 20px;
+}
+
+.stats-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #2c3e50;
+}
+
+/* Grid */
+.stats-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Card common */
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 220px;
+  max-width: 220px;
+  padding: 25px 20px;
+  border-radius: 15px;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Hover Effect */
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.25);
+}
+
+/* Card Colors */
+.dataset { background: linear-gradient(135deg, #3498db, #2980b9); }
+.organization { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+.category { background: linear-gradient(135deg, #f1c40f, #f39c12); }
+
+/* Icon & text */
+.stat-card .icon {
+  font-size: 4rem;
+  margin-bottom: 15px;
+}
+
+.stat-card .stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.stat-card .stat-label {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .stats-grid {
@@ -57,27 +102,31 @@
   }
 
   .stat-card {
-    flex: 1 1 45%; /* 2 cards per row */
+    flex: 1 1 45%;
     max-width: 45%;
   }
 }
 
 @media (max-width: 480px) {
   .stat-card {
-    flex: 1 1 100%; /* 1 card per row */
+    flex: 1 1 100%;
     max-width: 100%;
   }
 
-  .stats-wrapper h2 {
-    font-size: 1.5rem;
-  }
-
-  .stat-card i {
+  .stat-card .icon {
     font-size: 3rem;
   }
 
-  .stat-card div {
+  .stat-card .stat-number {
+    font-size: 1.8rem;
+  }
+
+  .stat-card .stat-label {
     font-size: 1.2rem;
+  }
+
+  .stats-title {
+    font-size: 1.8rem;
   }
 }
 </style>
