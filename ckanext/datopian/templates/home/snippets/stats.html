@@ -14,13 +14,13 @@
       <li>
         <a href="{{ h.url_for(controller='organization', action='index') }}">
           <strong>{{ h.SI_number_span(stats.organization_count) }}</strong>
-          {{ _('OPD') if stats.organization_count == 1 else _('organization) }}
+          {{ _('organisasi') if stats.organization_count == 1 else _('organization) }}
         </a>
       </li>
       <li>
         <a href="{{ h.url_for(controller='group', action='index') }}">
           <strong>{{ h.SI_number_span(stats.group_count) }}</strong>
-          {{ _('Kategori') if stats.group_count == 1 else _('group') }}
+          {{ _('group') if stats.group_count == 1 else _('group') }}
         </a>
       </li>
       {% endblock %}
