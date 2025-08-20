@@ -1,5 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&display=swap');
 
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  height: 100%;
+}
+
+.navbar-toggle {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.account.avatar.authed,
+.account.not-authed {
+  display: flex;
+  align-items: center;
+}
+
+.account.avatar.authed ul,
+.account.not-authed ul {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+.account.avatar.authed li,
+.account.not-authed li {
+  margin-bottom: 0;
+}
+
 body {
   font-family: 'Readex Pro', sans-serif;
   background: #fff;
