@@ -7,10 +7,7 @@
   {% endblock %}
   <div class="container">
     <div class="navbar-right" style="display: flex; align-items: center; gap: 15px;">
-      <button data-target="#main-navigation-toggle" data-toggle="collapse" class="navbar-toggle collapsed" type="button" aria-label="expand or collapse" aria-expanded="false">
-        <span class="sr-only">{{ _('Toggle navigation') }}</span>
-        <span class="fa fa-bars"></span>
-      </button>
+      
       {# Blok akun di kanan atas #}
       {% block header_account_container_content %}
         {% if c.userobj %}
@@ -72,6 +69,10 @@
           </nav>
         {% endif %}
       {% endblock %}
+      <button data-target="#main-navigation-toggle" data-toggle="collapse" class="navbar-toggle collapsed" type="button" aria-label="expand or collapse" aria-expanded="false">
+        <span class="sr-only">{{ _('Toggle navigation') }}</span>
+        <span class="fa fa-bars"></span>
+      </button>
     </div>
     <hgroup class="{{ g.header_class }} navbar-left">
       {% block header_logo %}
