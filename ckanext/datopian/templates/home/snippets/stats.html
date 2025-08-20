@@ -16,7 +16,7 @@
     <a href="{{ h.url_for('organization.index') }}" class="stat-card organization">
       <i class="fa fa-building icon"></i>
       <div class="stat-number">{{ h.SI_number_span(stats.organization_count) }}</div>
-      <div class="stat-label">{{ _('OPD') if stats.organization_count == 1 else _('Organisasi') }}</div>
+      <div class="stat-label">{{ _('Organisasi') if stats.organization_count == 1 else _('Organisasi') }}</div>
     </a>
 
     <!-- Kategori Card -->
@@ -43,12 +43,14 @@
   color: #2c3e50;
 }
 
-/* Grid */
+/* Grid - Horizontal */
 .stats-grid {
   display: flex;
+  flex-direction: row; /* horizontal */
   justify-content: center;
+  align-items: stretch;
   gap: 20px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* tetap satu baris */
 }
 
 /* Card common */
@@ -57,8 +59,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex: 1 1 220px;
-  max-width: 220px;
+  width: 220px;   /* ukuran sama */
   padding: 25px 20px;
   border-radius: 15px;
   color: #fff;
@@ -96,9 +97,9 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .stats-grid {
-    gap: 15px;
+    flex-wrap: wrap; /* baris bisa pecah di tablet */
   }
 
   .stat-card {
@@ -107,7 +108,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
   .stat-card {
     flex: 1 1 100%;
     max-width: 100%;
