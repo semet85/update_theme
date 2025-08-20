@@ -1,6 +1,6 @@
 {% extends "page.html" %}
 
-{% block subtitle %}{{ _("Confirm Delete") }}{% endblock %}
+{% block subtitle %}{{ _("Konfirmasi Hapus) }}{% endblock %}
 
 {% block maintag %}<div class="row" role="main">{% endblock %}
 
@@ -12,8 +12,8 @@
         <p class="form-actions">
           <form action="{% url_for group_type+'.member_delete', id=group_id %}" method="post">
             <input type="hidden" name="user" value="{{ user_id }}" />
-            <button class="btn btn-danger" type="submit" name="cancel" >{{ _('Cancel') }}</button>
-            <button class="btn btn-primary" type="submit" name="delete" >{{ _('Confirm Delete') }}</button>
+            <button class="btn btn-danger" type="submit" name="cancel" >{{ _('Batal') }}</button>
+            <button class="btn btn-primary" type="submit" name="delete" >{{ _('Hapus') }}</button>
           </form>
         </p>
       {% endblock %}
