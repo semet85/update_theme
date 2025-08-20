@@ -64,6 +64,63 @@
   margin-bottom: 5px;
 }
 
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 15px;
+}
+
+.stat-item {
+  border-radius: 14px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+}
+
+.stat-item a {
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Ikon besar */
+.stat-item .icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.stat-item strong {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.stat-item span {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* === Warna berbeda === */
+.stat-item.dataset {
+  background: #007BFF;
+}
+.stat-item.organization {
+  background: #28a745;
+}
+.stat-item.category {
+  background: #fd7e14;
+}
+
 /* smpe disini*/
 
 .navbar-right {
