@@ -25,6 +25,7 @@
 
 <div class="main">
     <div class="container">
+      <h2 class="text-center mb-4"> <i class="fas fa-building"></i> Kategori & Organisasi </h2>
       <div class="row row3">
         <div class="col-md-6 col1">
           {% block featured_group %}
@@ -46,7 +47,7 @@
       <div class="col-md-12">
         {% block group_list %}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-          <h2 class="text-center mb-4"> <i class="fas fa-folder-open"></i> Kategori</h2>
+          <h2 class="text-center mb-4"> <i class="fas fa-folder-open"></i> Topik Data</h2>
           {% set groups = h.get_featured_groups(count=10) %}
           {% if not groups %}
             <p class="text-center">{{ _('Tidak ada kategori yang ditemukan.') }}</p>
