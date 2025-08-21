@@ -52,54 +52,56 @@
   </div>
 </header>
 
-<!-- 🔹 Inline CSS + JS -->
+<!-- 🔹 CSS Modern (Solid Header) -->
 <style>
-  /* Header default (transparan) */
+  /* Header solid dari awal */
   header.masthead {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1030;
+    background: #0d6efd; /* biru solid */
+    padding: 15px 0;
     transition: all 0.3s ease;
-    background: transparent;
   }
 
-  /* Konten tidak ketimpa */
+  /* Supaya konten tidak ketimpa */
   body {
-    padding-top: 80px;
+    padding-top: 90px;
   }
 
-  /* Saat discroll */
+  /* Saat scroll → header lebih kecil + shadow */
   header.masthead.scrolled {
-    background: #0d6efd; /* solid biru */
-    padding: 5px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    padding: 8px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   }
 
+  /* Logo shrink */
   header.masthead img {
-    max-height: 60px;
-    transition: max-height 0.3s ease;
+    max-height: 65px;
+    transition: max-height 0.3s ease, transform 0.3s ease;
   }
-
   header.masthead.scrolled img {
-    max-height: 40px;
+    max-height: 45px;
+    transform: scale(0.95);
   }
 
-  /* Biar teks navbar kontras di atas background */
+  /* Style menu */
   header.masthead .nav > li > a {
     color: #fff !important;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
   }
   header.masthead .nav > li > a:hover {
-    color: #ffe082 !important;
+    color: #ffd54f !important;
   }
 </style>
 
+<!-- 🔹 JS Scroll -->
 <script>
   window.addEventListener("scroll", function() {
-    var header = document.querySelector("header.masthead");
+    const header = document.querySelector("header.masthead");
     if (header) {
       header.classList.toggle("scrolled", window.scrollY > 50);
     }
