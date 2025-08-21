@@ -14,6 +14,18 @@
   <div class="container">
     <div class="row row1">
       <div class="col-md-12">
+          {% block stats %}
+          {% snippet 'home/snippets/stats.html' %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div role="main" class="">
+  <div class="container">
+    <div class="row row1">
+      <div class="col-md-12">
           {% block featured_group %}
           {% snippet 'home/snippets/featured_group.html' %}
         {% endblock %}
