@@ -1,22 +1,27 @@
-{# Menampilkan semua groups di sidebar #}
-{% set groups = groups_list() %} {# Panggil fungsi helper dari plugin.py #}
+{#
+Embeds a group within the sidebar of a page.
 
-{% for group in groups %}
-  {% set url = h.url_for(controller='group', action='read', id=group.name) %}
+group    - The group dict.
+truncate - A max length for the group description. If not provided the description
+           will be full length.
+
+Example:
+
+    {% snippet 'snippets/group, group=c.group_dict %}
+
+#}
+{% with truncate=truncate or 0, url=h.url_for(controller='group', action='read', id=group.name) %}
   <section class="module module-narrow module-shallow group">
     <div class="module-content media media-vertical">
       <a class="media-image" href="{{ url }}">
-        <img src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}"
-             class="img-responsive" width="200" height="125" alt="{{ group.name }}" />
+        <img src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" class="img-responsive" width="200" height="125" alt="{{ group.name }}" />
       </a>
       <div class="media-content">
-        <h3 class="media-heading">
-          <a href="{{ url }}">{{ group.title or group.name|truncate(35) }}</a>
-        </h3>
+        <h3 class="media-heading"><a href={{ url }}>{{ group.title or group.name }}</a></h3>
         {% if group.description %}
-          <p>{{ h.markdown_extract(group.description, 150) }}</p>
+          <p>{{ h.markdown_extract(group.description, truncate) }}</p>
         {% endif %}
       </div>
     </div>
   </section>
-{% endfor %}
+{% endwith %}
