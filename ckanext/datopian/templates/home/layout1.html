@@ -14,7 +14,8 @@
   <div class="container">
     <div class="row row1">
       <div class="col-md-12">
-            {% set groups = h.get_action('group_list')({}, {'all_fields': True}) %}
+            {% set group_list_action = h.get_action('group_list') %}
+            {% set groups = group_list_action({}, {'all_fields': True}) %}    
 
           <ul class="media-grid">
             {% for group in groups %}
