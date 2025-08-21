@@ -31,22 +31,13 @@
 
 <style>
 
-  .stats-grid {
+  .stats-wrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  align-items: stretch;
-  gap: 20px;
-  flex-wrap: nowrap;
-}
-
-  /* Wrapper & title */
-display: flex;
-  flex-direction: column; /* agar title tetap di atas grid */
-  align-items: center;    /* center horizontal */
-  justify-content: center; /* center vertikal jika tinggi parent cukup */
-  min-height: 100vh;      /* supaya bisa center vertikal full screen */
-  text-align: center;      /* center teks jika perlu */
+  min-height: 100vh;
+  text-align: center;
 }
 
 .stats-title {
@@ -56,39 +47,21 @@ display: flex;
   color: #2c3e50;
 }
 
-/* Semua card sama ukuran */
-.stat-card {
-  flex: 1;                /* agar semua card sama lebar */
-  max-width: 220px;       /* bisa disesuaikan */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 25px 20px;
-  border-radius: 15px;
-  color: #fff;
-  text-decoration: none;
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-
-
-/* Grid - Horizontal */
 .stats-grid {
   display: flex;
-  flex-direction: row; /* horizontal */
+  flex-direction: row;
   justify-content: center;
   align-items: stretch;
   gap: 20px;
-  flex-wrap: nowrap; /* tetap satu baris */
+  flex-wrap: nowrap;
 }
 
-/* Card common */
 .stat-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 220px;   /* ukuran sama */
+  width: 220px;
   padding: 25px 20px;
   border-radius: 15px;
   color: #fff;
@@ -97,66 +70,30 @@ display: flex;
   box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-/* Hover Effect */
 .stat-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 20px rgba(0,0,0,0.25);
 }
 
-/* Card Colors */
 .dataset { background: linear-gradient(135deg, #3498db, #2980b9); }
 .organization { background: linear-gradient(135deg, #2ecc71, #27ae60); }
 .category { background: linear-gradient(135deg, #f1c40f, #f39c12); }
 
-/* Icon & text */
-.stat-card .icon {
-  font-size: 4rem;
-  margin-bottom: 15px;
-}
+.stat-card .icon { font-size: 4rem; margin-bottom: 15px; }
+.stat-card .stat-number { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
+.stat-card .stat-label { font-size: 1.3rem; font-weight: 600; }
 
-.stat-card .stat-number {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.stat-card .stat-label {
-  font-size: 1.3rem;
-  font-weight: 600;
-}
-
-/* Responsive */
 @media (max-width: 992px) {
-  .stats-grid {
-    flex-wrap: wrap; /* baris bisa pecah di tablet */
-  }
-
-  .stat-card {
-    flex: 1 1 45%;
-    max-width: 45%;
-  }
+  .stats-grid { flex-wrap: wrap; }
+  .stat-card { flex: 1 1 45%; max-width: 45%; margin-bottom: 20px; }
 }
 
 @media (max-width: 576px) {
-  .stat-card {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
-
-  .stat-card .icon {
-    font-size: 3rem;
-  }
-
-  .stat-card .stat-number {
-    font-size: 1.8rem;
-  }
-
-  .stat-card .stat-label {
-    font-size: 1.2rem;
-  }
-
-  .stats-title {
-    font-size: 1.8rem;
-  }
+  .stat-card { flex: 1 1 100%; max-width: 100%; }
+  .stat-card .icon { font-size: 3rem; }
+  .stat-card .stat-number { font-size: 1.8rem; }
+  .stat-card .stat-label { font-size: 1.2rem; }
+  .stats-title { font-size: 1.8rem; }
 }
+
 </style>
