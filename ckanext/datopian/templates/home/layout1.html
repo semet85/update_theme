@@ -12,7 +12,7 @@
 
 <div class="main">
   <div class="container">
-    <div class="row row1">
+    <div class="row row2">
       <div class="col-md-12">
           {% block stats %}
           {% snippet 'home/snippets/stats.html' %}
@@ -24,7 +24,7 @@
 
 <div class="main">
     <div class="container">
-      <div class="row row2">
+      <div class="row row3">
         <div class="col-md-6 col1">
           {% block featured_group %}
             {% snippet 'home/snippets/featured_group.html' %}
@@ -38,3 +38,17 @@
       </div>
     </div>
   </div>
+
+ <div class="main">
+  <div class="container">
+    <div class="row row4">
+      <div class="col-md-12">
+        {% block group_list %}
+          <h2 class="text-center">Semua Kategori</h2>
+          {% set groups = h.get_groups(limit=12) %}
+          {% snippet "group/snippets/group_list.html", groups=groups %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>
