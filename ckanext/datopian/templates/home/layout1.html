@@ -14,19 +14,9 @@
   <div class="container">
     <div class="row row1">
       <div class="col-md-12">
-            {% set group_list_action = h.get_action('group_list') %}
-{% set groups = group_list_action({}, {'all_fields': True}) %}
-
-<ul class="media-grid">
-  {% for g in groups %}
-    <li>
-      <a href="{{ h.url_for('group_read', id=g.name) }}">
-        {{ g.title or g.name }}
-      </a>
-    </li>
-  {% endfor %}
-</ul>
-
+          {% block featured_group %}
+          {% snippet 'home/snippets/featured_group.html' %}
+        {% endblock %}
       </div>
     </div>
   </div>
