@@ -10,7 +10,7 @@
               <!-- {% set api_url = 'http://docs.ckan.org/en/{0}/api/'.format(g.ckan_doc_version) %} -->
               <!-- <li><a href="{{ api_url }}">{{ _('CKAN API') }}</a></li> -->
               <li><a href="/about">{{ _('Tentang Satu Data ORAS') }}</a></li>
-              <li><a href="https://diskominfo.boltimkab.go.id" target="_blank">Built by Dinas Kominfo <br/> <img src="{{ h.url_for_static('/base/images/diskominfo.png') }}" width="150" alt="diskominfo.boltimkab.go.id"></a></li>
+              <li><a href="https://diskominfo.boltimkab.go.id" target="_blank">Built by<br/> <img src="{{ h.url_for_static('/base/images/diskominfo.png') }}" width="150" alt="diskominfo.boltimkab.go.id"></a></li>
               <li><a href="http://www.boltimkab/beranda.go.id" target="_blank"><img src="{{ h.url_for_static('/base/images/portal_boltim.png') }}" width="150" alt="boltimkab/beranda.go.id"></a></li>
               <li><a href="http://www.boltimkab.go.id" target="_blank"><img src="{{ h.url_for_static('/base/images/LOGO_BOLTIM_BANGKIT.png') }}" width="150" alt="boltimkab.go.id"></a></li>
             {% endblock %}
@@ -22,18 +22,19 @@
             {% set logo_url = h.url_for_static('/base/images/logo_sdi.png') %}
             {% set logo_sulut = h.url_for_static('/base/images/satudata_sulut.png') %}
 
-            <p>
-              {% trans %}<strong>Powered by</strong>{% endtrans %}
+            <div style="display: flex; align-items: center; gap: 20px;">
+              <span>
+                {% trans %}<strong>Powered by</strong>{% endtrans %}
+              </span>
               <a href="http://www.data.go.id" target="_blank">
                 <img src="{{ logo_url }}" width="150" alt="data.go.id">
               </a>
-            </p>
-            <p>
               <a href="http://www.satudata.sulutprov.go.id" target="_blank">
                 <img src="{{ logo_sulut }}" width="150" alt="satudata.sulutprov.go.id">
               </a>
-            </p>
+            </div>
           {% endblock %}
+
 
           {% block footer_lang %}
             {% snippet "snippets/language_selector.html" %}
