@@ -15,31 +15,9 @@
     <div class="row row1">
       <div class="col-md-12">
         <!-- <h2 class="heading" style="color: #130101;">{{ _('Tessss') }}</h2> -->
-          {% block stats %}
-          {% snippet 'home/snippets/stats.html' %}
-        {% endblock %}      
-      </div>
-    </div>
-  </div>
-
-  <div role="main" class="">
-  <div class="container">
-    <div class="row row1">
-      <div class="col-md-12">
-          {% block groups_list %}
-    {% if page.items or request.params %}
-      {% if page.items %}
-        {% snippet "group/snippets/group_list.html", groups=page.items %}
-      {% endif %}
-    {% else %}
-      <p class="empty">
-        {{ _('There are currently no groups for this site') }}.
-        {% if h.check_access('group_create') %}
-          {% link_for _('How about creating one?'), named_route=group_type+'.new' %}</a>.
-        {% endif %}
-      </p>
-    {% endif %}
-  {% endblock %}      
+      {% block featured_groups %}
+          {% snippet 'home/snippets/featured_groups.html' %}
+        {% endblock %}   
       </div>
     </div>
   </div>
