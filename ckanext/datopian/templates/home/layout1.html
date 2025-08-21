@@ -45,7 +45,10 @@
       <div class="col-md-12">
         {% block group_list %}
           <h2 class="text-center">Semua Kategori</h2>
-          {% set groups = h.get_groups(limit=12) %}
+          {% set groups = h.group_list() %}
+          {% if not groups %}
+            <p class="text-center">{{ _('Tidak ada kategori yang ditemukan.') }}</p>
+          {% else %}
           {% snippet "group/snippets/group_list.html", groups=groups %}
         {% endblock %}
       </div>
