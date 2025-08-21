@@ -370,7 +370,7 @@ img {
   border-radius: 6px;
 }
 .homepage .module-search .tags h3 {
-  color: #383838;
+  color: #eeeded;
 }
 .homepage .module-search.box {
   background: transparent;
@@ -397,8 +397,8 @@ img {
 a.tag:hover {
   text-decoration: none;
   color: #fff;
-  background-color: #003164;
-  border: 1px solid #003164;
+  background-color: #08f12f;
+  border: 1px solid #eceff1;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
