@@ -15,13 +15,18 @@
     <div class="row row1">
       <div class="col-md-12">
             {% set group_list_action = h.get_action('group_list') %}
-            {% set groups = group_list_action({}, {'all_fields': True}) %}    
+{% set groups = group_list_action({}, {'all_fields': True}) %}
 
-          <ul class="media-grid">
-            {% for group in groups %}
-              {% snippet "group/snippets/group_item.html", group=group %}
-            {% endfor %}
-          </ul>
+<ul class="media-grid">
+  {% for g in groups %}
+    <li>
+      <a href="{{ h.url_for('group_read', id=g.name) }}">
+        {{ g.title or g.name }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
       </div>
     </div>
   </div>
