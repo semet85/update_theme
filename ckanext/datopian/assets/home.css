@@ -284,7 +284,7 @@ img {
   padding-top: 0;
 }
 .masthead {
-  background: #0861e6;
+  background: #202020;
 }
 .masthead .nav li a {
   color: #faf9f9;
@@ -299,7 +299,7 @@ img {
 .site-footer {
   margin-top: 20px !important;
   padding-top: 20px !important;
-  background: #1a1919 !important;
+  background: #202020 !important;
 }
 .form-control {
   border-radius: 0;
@@ -397,7 +397,7 @@ img {
 a.tag:hover {
   text-decoration: none;
   color: #fff;
-  background-color: #08f12f;
+  background-color: #0d6cfa;
   border: 1px solid #eceff1;
   -webkit-box-shadow: none;
   box-shadow: none;
