@@ -1,35 +1,22 @@
-{#
-Displays all groups (categories) in the sidebar with modern card style.
+{# Menampilkan semua groups di sidebar #}
+{% set groups = groups_list() %} {# Panggil fungsi helper dari plugin.py #}
 
-Usage:
-    {% snippet 'snippets/all_groups.html', truncate=150 %}
-#}
-
-{% set groups = h.groups_list() %} {# Ambil semua groups dari CKAN #}
-
-<div class="all-groups-wrapper" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
 {% for group in groups %}
   {% set url = h.url_for(controller='group', action='read', id=group.name) %}
-  <div class="group-card" style="
-      background: #fff; 
-      border-radius: 12px; 
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
-      overflow: hidden; 
-      width: 220px; 
-      transition: transform 0.3s, box-shadow 0.3s;
-  " onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';">
-    <a href="{{ url }}">
-      <img src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}"
-           alt="{{ group.name }}" style="width: 100%; height: 125px; object-fit: cover;">
-    </a>
-    <div class="group-card-content" style="padding: 12px; text-align: center;">
-      <h4 style="margin: 8px 0;"><a href="{{ url }}" style="text-decoration: none; color: #333;">{{ group.title or group.name }}</a></h4>
-      {% if group.description %}
-        <p style="font-size: 0.875rem; color: #666;">{{ h.markdown_extract(group.description, truncate or 0) }}</p>
-      {% endif %}
+  <section class="module module-narrow module-shallow group">
+    <div class="module-content media media-vertical">
+      <a class="media-image" href="{{ url }}">
+        <img src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}"
+             class="img-responsive" width="200" height="125" alt="{{ group.name }}" />
+      </a>
+      <div class="media-content">
+        <h3 class="media-heading">
+          <a href="{{ url }}">{{ group.title or group.name|truncate(35) }}</a>
+        </h3>
+        {% if group.description %}
+          <p>{{ h.markdown_extract(group.description, 150) }}</p>
+        {% endif %}
+      </div>
     </div>
-  </div>
+  </section>
 {% endfor %}
-</div>
-
-

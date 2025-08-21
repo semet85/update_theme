@@ -1,15 +1,12 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-from flask import Blueprint
+from flask import Blueprint, render_template
+from ckan.model import Group  # Import model langsung dari CKAN
 
-# Helper function untuk mengembalikan semua groups
+# Contoh helper untuk snippet
 def groups_list():
-    '''
-    Ambil semua groups dari CKAN
-    '''
-    model = toolkit.model
-    context = {'model': model, 'session': model.Session}
-    return toolkit.get_action('group_list')(context)
+    """Mengambil semua groups (categories) dari CKAN"""
+    return Group.all()
 
 
 def hello_plugin():
@@ -18,27 +15,20 @@ def hello_plugin():
 
 class DatopianPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
-    plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IBlueprint)
 
     # IConfigurer
     def update_config(self, config_):
+        # Tambahkan template, public, dan assets
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('assets', 'datopian')
 
-    # ITemplateHelpers
-    def get_helpers(self):
-        return {
-            'groups_list': groups_list,
-            'hello_plugin': hello_plugin
-        }
-
     # IBlueprint
     def get_blueprint(self):
-        '''Return a Flask Blueprint object to be registered by the app.'''
+        """Return a Flask Blueprint object"""
         blueprint = Blueprint(self.name, self.__module__)
-        blueprint.template_folder = 'templates'
-        # Tambahkan route contoh
+        blueprint.template_folder = u'templates'
+        # URL plugin
         blueprint.add_url_rule('/hello_plugin', '/hello_plugin', hello_plugin)
         return blueprint
