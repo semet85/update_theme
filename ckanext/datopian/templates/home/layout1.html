@@ -15,9 +15,17 @@
     <div class="row row1">
       <div class="col-md-12">
     <ul class="media-grid">
-      {% for group in groups %}
-        {% snippet "group/snippets/group_item.html", group=group %}
-      {% endfor %}
+      {% set groups = h.get_groups() %}
+
+        <ul class="media-grid">
+          {% if groups and groups|length > 0 %}
+            {% for group in groups %}
+              {% snippet "group/snippets/group_item.html", group=group %}
+            {% endfor %}
+          {% else %}
+            <li><em>Tidak ada grup yang tersedia.</em></li>
+          {% endif %}
+        </ul>
     </ul> 
       </div>
     </div>
