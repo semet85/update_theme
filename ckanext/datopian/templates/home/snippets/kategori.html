@@ -1,0 +1,7 @@
+{% set groups = h.get_kategori() %}
+
+{% for group in groups %}
+  <div class="box">
+    {% snippet 'snippets/group.html'}
+  </div>
+{% endfor %}
