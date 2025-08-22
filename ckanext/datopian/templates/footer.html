@@ -8,18 +8,19 @@
         <div class="powered-section mb-3">
           <span><strong>Powered by</strong></span>
           <div class="footer-logos mt-2">
-            <a href="https://data.go.id/" target="_blank">
+            <p><a href="https://data.go.id/" target="_blank">
               <img src="{{ h.url_for_static('/base/images/logo_sdi.png') }}" width="100" alt="data.go.id">
             </a>
             <a href="https://satudata.sulutprov.go.id/" target="_blank">
               <img src="{{ h.url_for_static('/base/images/satudata_sulut.png') }}" width="100" alt="satudata">
-            </a>
-            <a href="/about" class="link-hover">Tentang Satu Data ORAS</a>
+            </a></p>
+            <p><a href="/about" class="link-hover">Tentang Satu Data ORAS</a></p>
           </div>
         </div>
-        {% block footer_lang %}
+        <p>{% block footer_lang %}
           {% snippet "snippets/language_selector.html" %}
-        {% endblock %}      
+        {% endblock %}</p>
+              
       </div>
 
       <!-- Kolom kanan -->
