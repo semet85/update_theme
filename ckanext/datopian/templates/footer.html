@@ -1,4 +1,5 @@
 <footer class="site-footer">
+  <!-- Bagian atas footer -->
   <div class="footer-top">
     <div class="container">
       <div class="row">
@@ -20,7 +21,7 @@
 
         <div class="col-md-4 attribution fade-in">
           <div class="powered-by">
-            <span><strong>Powered by</strong></span>
+            <span><strong>Powered by Bidang Persandian & Statistik</strong></span>
             <a href="https://data.go.id/" target="_blank">
               <img src="{{ h.url_for_static('/base/images/logo_sdi.png') }}" width="100" alt="data.go.id">
             </a>
@@ -33,16 +34,17 @@
     </div>
   </div>
 
+  <!-- Bagian bawah footer -->
   <div class="footer-bottom">
     <div class="container d-flex justify-content-between align-items-center">
       <div class="copyright">
-        &copy; {{ now().year }} Pemerintah Kabupaten Bolaang Mongondow Timur. All rights reserved.
+        &copy; {{ "%Y"|strftime }} Dinas Komunikasi dan Informatika Kabupaten Bolaang Mongondow Timur. All rights reserved.
       </div>
       <div class="social-icons">
-        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://web.facebook.com/pemda.kabupaten.boltim" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <!-- <a href="#" target="_blank"><i class="fab fa-twitter"></i></a> -->
+        <a href="https://www.instagram.com/pemdakabupatenboltim/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@PemdaKabupatenBoltim" target="_blank"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
   </div>
