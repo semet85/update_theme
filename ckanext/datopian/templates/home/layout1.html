@@ -78,22 +78,41 @@
   <div class="container">
     <div class="row row5">
       <div class="col-md-12">
-         <!-- Statistik GA Minimalis -->
+        <!-- Statistik GA Minimalis -->
 <div class="row mt-5">
   <div class="col-md-12">
     <h2 class="text-center mb-4">
       <i class="fas fa-chart-line"></i> Statistik Pengunjung
     </h2>
+
+    <!-- Card Statistik -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-3 col-sm-6 mb-3">
+        <div class="stat-card text-center">
+          <i class="fas fa-user-friends"></i>
+          <h3 class="stat-number">12,345</h3>
+          <p class="stat-label">Total Pengunjung</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-3">
+        <div class="stat-card text-center">
+          <i class="fas fa-file-alt"></i>
+          <h3 class="stat-number">67,890</h3>
+          <p class="stat-label">Total Pageviews</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grafik GA -->
     <div class="row justify-content-center">
-      <div class="col-md-6 col-sm-12">
-        <iframe 
-          width="100%" 
-          height="300" 
-          src="https://lookerstudio.google.com/embed/reporting/9d348fc4-34a8-4f60-88a9-8a968694281a/page/ouTVF" 
-          frameborder="0" 
-          style="border:0; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1);" 
-          allowfullscreen>
-        </iframe>
+      <div class="col-md-8 col-sm-12">
+        <div class="iframe-container">
+          <iframe 
+            src="https://lookerstudio.google.com/embed/reporting/9d348fc4-34a8-4f60-88a9-8a968694281a/page/ouTVF" 
+            frameborder="0" 
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
     </div>
   </div>
@@ -157,6 +176,52 @@
 }
 .left-btn { margin-right: 10px; }
 .right-btn { margin-left: 10px; }
+
+
+.stat-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform .2s ease;
+}
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+.stat-card i {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+.stat-label {
+  font-size: .9rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Responsive iframe */
+.iframe-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.iframe-container iframe {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border:0;
+}
 </style>
 
 <script>
