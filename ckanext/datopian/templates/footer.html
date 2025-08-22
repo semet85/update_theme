@@ -1,7 +1,7 @@
 <footer class="site-footer">
   <!-- Footer atas -->
   <div class="footer-top">
-    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    <div class="container d-flex flex-wrap justify-content-between align-items-start gap-3">
       <!-- Powered by + Language selector -->
       <div class="powered-section d-flex flex-column flex-md-row align-items-start align-md-items-center gap-3 text-white">
         <div class="logos d-flex flex-wrap align-items-center gap-2">
@@ -13,23 +13,23 @@
             <img src="{{ h.url_for_static('/base/images/satudata_sulut.png') }}" width="100" alt="satudata.sulutprov.go.id">
           </a>
         </div>
-        <!-- Language selector -->
-        <div class="footer-lang">
+        <!-- Language selector (optional) -->
+        <!-- <div class="footer-lang">
           {% block footer_lang %}
             {% snippet "snippets/language_selector.html" %}
           {% endblock %}
-        </div>
+        </div> -->
       </div>
 
       <!-- Info kontak & Tentang Satu Data ORAS -->
-      <ul class="list-unstyled footer-links d-flex flex-column flex-md-row gap-3 mt-3 mt-md-0 text-white">
+      <ul class="list-unstyled footer-links d-flex flex-column flex-md-row gap-3 text-white">
         <li><a href="/about">{{ _('Tentang Satu Data ORAS') }}</a></li>
         <li><a href="mailto:info@boltimkab.go.id"><i class="fas fa-envelope"></i> info@boltimkab.go.id</a></li>
         <li><a href="tel:+628123456789"><i class="fas fa-phone"></i> Call Us: +62 812-3456-789</a></li>
       </ul>
 
       <!-- Logo tambahan -->
-      <div class="footer-logos d-flex flex-wrap gap-3 mt-3 mt-md-0 justify-content-center justify-content-md-end align-items-center">
+      <div class="footer-logos d-flex flex-wrap gap-3 justify-content-center justify-content-md-end align-items-center">
         <a href="https://diskominfo.boltimkab.go.id" target="_blank">Built by Bidang Persandian & Statistik</a>
         <a href="https://boltimkab.go.id/beranda" target="_blank">
           <img src="{{ h.url_for_static('/base/images/diskominfo.png') }}" width="120" alt="diskominfo">
@@ -60,12 +60,27 @@
 </footer>
 
 <style>
+/* General Footer */
 .site-footer {
   width: 100%;
   font-family: 'Arial', sans-serif;
   color: #fff;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Sticky Footer */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-footer {
+  margin-top: auto;
+}
+
+/* Footer Top */
 .footer-top {
   background: linear-gradient(135deg, #2c3e50, #3498db, #2c3e50);
   padding: 30px 15px;
@@ -74,21 +89,34 @@
 .footer-top a {
   color: #fff;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: all 0.3s;
 }
 
 .footer-top a:hover {
   color: #f1c40f;
+  transform: scale(1.05);
 }
 
 .footer-top i {
   margin-right: 5px;
 }
 
-.footer-links a {
-  color: #fff;
+/* Footer Links */
+.footer-links {
+  flex-wrap: wrap;
 }
 
+.footer-links a {
+  color: #fff;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-links a:hover {
+  color: #f1c40f;
+  transform: scale(1.05);
+}
+
+/* Powered Section */
 .powered-section {
   opacity: 0;
   transform: translateY(20px);
@@ -103,6 +131,18 @@
   gap: 10px;
 }
 
+.footer-logos a,
+.footer-logos img {
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.footer-logos a:hover,
+.footer-logos img:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+
+/* Footer Bottom */
 .footer-bottom {
   background: linear-gradient(135deg, #34495e, #2c3e50);
   padding: 15px 0;
@@ -120,7 +160,7 @@
   transform: scale(1.2);
 }
 
-/* Animasi fade in */
+/* Animasi */
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -128,21 +168,12 @@
   }
 }
 
-/* Sticky footer */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.site-footer {
-  margin-top: auto;
-}
-
+/* Footer Logos */
 .footer-logos img {
   vertical-align: middle;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .footer-top {
     flex-direction: column;
@@ -151,11 +182,13 @@ body {
 
   .powered-section, .footer-links, .footer-logos {
     justify-content: center !important;
+    align-items: center !important;
   }
 
   .footer-links {
     flex-direction: column !important;
     gap: 5px;
+    margin-top: 10px;
   }
 
   .footer-logos {
