@@ -31,7 +31,7 @@
 </div>
 
 <style>
-  /* CSS sama seperti sebelumnya */
+  /* CSS sama seperti sebelumnya 
   .stats-wrapper { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 20vh; text-align: center; }
   .stats-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 10px; color: #2c3e50; }
   .stats-grid { display: flex; flex-direction: row; justify-content: center; align-items: stretch; gap: 20px; flex-wrap: nowrap; }
@@ -44,7 +44,58 @@
   .stat-card .stat-number { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
   .stat-card .stat-label { font-size: 1.3rem; font-weight: 600; }
   @media (max-width: 992px) { .stats-grid { flex-wrap: wrap; } .stat-card { flex: 1 1 45%; max-width: 45%; margin-bottom: 20px; } }
-  @media (max-width: 576px) { .stat-card { flex: 1 1 100%; max-width: 100%; } .stat-card .icon { font-size: 3rem; } .stat-card .stat-number { font-size: 1.8rem; } .stat-card .stat-label { font-size: 1.2rem; } .stats-title { font-size: 1.8rem; } }
+  @media (max-width: 576px) { .stat-card { flex: 1 1 100%; max-width: 100%; } .stat-card .icon { font-size: 3rem; } .stat-card .stat-number { font-size: 1.8rem; } .stat-card .stat-label { font-size: 1.2rem; } .stats-title { font-size: 1.8rem; } } */
+  /* Bungkus grid statistik */
+.stats-grid {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  align-items: stretch; /* <== penting agar sama tinggi */
+}
+
+/* Card Statistik */
+.stat-card {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: #fff;
+  flex: 1 1 250px; /* fleksibel tapi minimal 250px */
+  max-width: 280px;
+  min-height: 200px; /* <== pastikan sama tinggi */
+  padding: 25px 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* tengah vertikal */
+  align-items: center; /* tengah horizontal */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.25);
+}
+
+.stat-card i {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.stat-label {
+  font-size: 1.1rem;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stat-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
 </style>
 
 <script>
