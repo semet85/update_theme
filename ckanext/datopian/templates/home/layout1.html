@@ -1,6 +1,8 @@
 <div role="main" class="hero">
   <div class="container">
     <div class="row row1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">     
+
       <div class="col-md-12">
         {% block search %}
           {% snippet 'home/snippets/search.html' %}
@@ -18,31 +20,7 @@
           {% snippet 'home/snippets/stats.html' %}
         {% endblock %}
       </div>
-    </div>
-
-    <!-- Statistik GA Minimalis -->
-<div class="row mt-5">
-  <div class="col-md-12">
-    <h2 class="text-center mb-4">
-      <i class="fas fa-chart-line"></i> Statistik Pengunjung
-    </h2>
-    <div class="row justify-content-center">
-      <div class="col-md-6 col-sm-12">
-        <iframe 
-          width="100%" 
-          height="300" 
-          src="https://lookerstudio.google.com/embed/reporting/9d348fc4-34a8-4f60-88a9-8a968694281a/page/ouTVF" 
-          frameborder="0" 
-          style="border:0; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1);" 
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- End Statistik GA Minimalis -->
-
-
+    </div>  
   </div>
 </div>
 
@@ -69,7 +47,7 @@
     <div class="row row4">
       <div class="col-md-12">
         {% block group_list %}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        
           <h2 class="text-center mb-4"> <i class="fas fa-folder-open"></i> Topik Data</h2>
           {% set groups = h.get_featured_groups(count=10) %}
           {% if not groups %}
@@ -97,3 +75,44 @@
     </div>
   </div>
 </div>
+
+<div class="main">
+  <div class="container">
+    <div class="row row5">
+      <div class="col-md-12">
+         <!-- Statistik GA Minimalis -->
+<div class="row mt-5">
+  <div class="col-md-12">
+    <h2 class="text-center mb-4">
+      <i class="fas fa-chart-line"></i> Statistik Pengunjung
+    </h2>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-sm-12">
+        <iframe 
+          width="100%" 
+          height="300" 
+          src="https://lookerstudio.google.com/embed/reporting/9d348fc4-34a8-4f60-88a9-8a968694281a/page/ouTVF" 
+          frameborder="0" 
+          style="border:0; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1);" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Statistik GA Minimalis -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LGD3KZ8K7Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LGD3KZ8K7Q');
+</script>
