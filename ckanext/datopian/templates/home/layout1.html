@@ -82,38 +82,34 @@
 <div class="row mt-5">
   <div class="col-md-12">
     <h2 class="text-center mb-4">
-      <i class="fas fa-chart-line"></i> Statistik Pengunjung
+      <i class="fas fa-chart-line"></i> Statistik Website
     </h2>
 
         <!-- Card Statistik -->
-    <div class="d-flex justify-content-center flex-wrap gap-4">
-      <!-- Total Pengunjung -->
-      <div class="col-md-3 col-sm-6 mb-3">
-        <div class="stat-card2 text-center">
-          <i class="fas fa-user-friends"></i>
-          <h3 class="stat-number2">12,345</h3>
-          <p class="stat-label2">Total Pengunjung</p>
-        </div>
-      </div>
+<div class="d-flex justify-content-center flex-wrap gap-4">
+  
+  <!-- Total Pengunjung -->
+  <div class="stat-card2 text-center">
+    <i class="fas fa-user-friends"></i>
+    <h3 class="stat-number2">12,345</h3>
+    <p class="stat-label2">Total Pengunjung</p>
+  </div>
 
-      <!-- Total Pageviews -->
-      <div class="col-md-3 col-sm-6 mb-3">
-        <div class="stat-card2 text-center">
-          <i class="fas fa-file-alt"></i>
-          <h3 class="stat-number2">67,890</h3>
-          <p class="stat-label2">Total Pageviews</p>
-        </div>
-      </div>
+  <!-- Total Pageviews -->
+  <div class="stat-card2 text-center">
+    <i class="fas fa-file-alt"></i>
+    <h3 class="stat-number2">67,890</h3>
+    <p class="stat-label2">Total Pageviews</p>
+  </div>
 
-      <!-- Pengunjung Hari Ini -->
-      <div class="col-md-3 col-sm-6 mb-3">
-        <div class="stat-card2 text-center">
-          <i class="fas fa-calendar-day"></i>
-          <h3 class="stat-number2">123</h3>
-          <p class="stat-label2">Pengunjung Hari Ini</p>
-        </div>
-      </div>
-    </div>
+  <!-- Pengunjung Hari Ini -->
+  <div class="stat-card2 text-center">
+    <i class="fas fa-calendar-day"></i>
+    <h3 class="stat-number2">123</h3>
+    <p class="stat-label2">Pengunjung Hari Ini</p>
+  </div>
+
+</div>
 
     <!-- Grafik GA 
     <div class="row justify-content-center">
@@ -191,31 +187,53 @@
 
 
 .stat-card2 {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform .2s ease;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: #fff;
+  padding: 30px 20px;
+  border-radius: 15px;
+  width: 220px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 .stat-card2:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.25);
 }
 .stat-card2 i {
-  font-size: 2rem;
-  color: #007bff;
-  margin-bottom: 10px;
+  font-size: 42px;
+  margin-bottom: 15px;
 }
 .stat-number2 {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #333;
-  margin: 0;
 }
 .stat-label2 {
-  font-size: .9rem;
-  color: #666;
-  margin: 0;
+  font-size: 1.2rem;
+  margin-top: 5px;
+  font-weight: 500;
 }
+
+/* Responsive stat-card2*/
+@media (max-width: 992px) {
+  .stat-card2 {
+    width: 45%;    /* 2 card per baris di tablet */
+    height: 180px;
+  }
+}
+@media (max-width: 576px) {
+  .stat-card2 {
+    width: 100%;   /* 1 card per baris di HP */
+    height: auto;
+    padding: 20px;
+  }
+}
+
+
 
 /* Responsive iframe */
 .iframe-container {
