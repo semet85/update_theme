@@ -1,3 +1,4 @@
+
 <div role="main" class="hero">
   <div class="container">
     <div class="row row1">
@@ -14,25 +15,11 @@
   <div class="container">
     <div class="row row2">
       <div class="col-md-12">
-        {% block stats %}
+          {% block stats %}
           {% snippet 'home/snippets/stats.html' %}
         {% endblock %}
       </div>
     </div>
-
-    <!-- Statistik Pengunjung dari GA4 -->
-    <div class="row mt-5">
-      <div class="col-md-12">
-        <h2 class="text-center mb-4"><i class="fas fa-chart-line"></i> Statistik Pengunjung</h2>
-        <div class="row justify-content-center">
-          <div class="col-md-6 col-sm-12">
-            <iframe width="600" height="450" src="https://lookerstudio.google.com/embed/reporting/9d348fc4-34a8-4f60-88a9-8a968694281a/page/ouTVF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"> </iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Statistik Pengunjung -->
-
   </div>
 </div>
 
@@ -87,3 +74,73 @@
     </div>
   </div>
 </div>
+
+<style>
+.group-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  flex: 1;
+  padding: 10px 0;
+}
+
+.group-card {
+  flex: 0 0 200px;
+  background: #fff;
+  border-radius: 12px;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: transform .2s;
+}
+.group-card:hover {
+  transform: translateY(-5px);
+}
+.group-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.group-card h5 {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* tombol navigasi */
+.carousel-btn {
+  background: #007bff;
+  color: rgb(77, 75, 75);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 5;
+}
+.left-btn { margin-right: 10px; }
+.right-btn { margin-left: 10px; }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const track = document.querySelector(".carousel-track");
+  const leftBtn = document.querySelector(".left-btn");
+  const rightBtn = document.querySelector(".right-btn");
+
+  leftBtn.addEventListener("click", () => {
+    track.scrollBy({left: -220, behavior: "smooth"});
+  });
+  rightBtn.addEventListener("click", () => {
+    track.scrollBy({left: 220, behavior: "smooth"});
+  });
+});
+</script>
