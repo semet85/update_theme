@@ -23,19 +23,30 @@
                 <img src="{{ h.url_for_static('/base/images/portal_boltim.png') }}" width="120" alt="boltimkab">
               </a>
             </li>
+            <li>
+              <a href="https://boltimkab.go.id/" target="_blank">
+                <img src="{{ h.url_for_static('/base/images/LOGO_BOLTIM_BANGKIT.png') }}" width="150" alt="boltimkab.go.id">
+              </a>
+            </li>
           </ul>
         </div>
 
-        <!-- Powered by -->
+        <!-- Powered by + language selector -->
         <div class="col-md-4 attribution fade-in">
-          <div class="powered-by">
-            <span><strong>Powered by</strong></span>
-            <a href="https://data.go.id/" target="_blank">
-              <img src="{{ h.url_for_static('/base/images/logo_sdi.png') }}" width="100" alt="data.go.id">
-            </a>
-            <a href="https://satudata.sulutprov.go.id/" target="_blank">
-              <img src="{{ h.url_for_static('/base/images/satudata_sulut.png') }}" width="100" alt="satudata.sulutprov.go.id">
-            </a>
+          <div class="powered-by d-flex flex-column align-items-start gap-2">
+            <div class="logos d-flex flex-wrap gap-2 align-items-center">
+              <span><strong>Powered by</strong></span>
+              <a href="https://data.go.id/" target="_blank">
+                <img src="{{ h.url_for_static('/base/images/logo_sdi.png') }}" width="100" alt="data.go.id">
+              </a>
+              <a href="https://satudata.sulutprov.go.id/" target="_blank">
+                <img src="{{ h.url_for_static('/base/images/satudata_sulut.png') }}" width="100" alt="satudata.sulutprov.go.id">
+              </a>
+            </div>
+            <!-- Language selector -->
+            {% block footer_lang %}
+              {% snippet "snippets/language_selector.html" %}
+            {% endblock %}
           </div>
         </div>
       </div>
@@ -83,14 +94,23 @@
   margin-right: 5px;
 }
 
+.footer-links ul li img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .powered-by {
-  display: flex;
-  align-items: center;
-  gap: 15px;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 1s forwards;
   animation-delay: 0.5s;
+}
+
+.powered-by .logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
 }
 
 @keyframes fadeInUp {
@@ -146,6 +166,7 @@ body {
   .powered-by {
     flex-direction: column;
     gap: 10px;
+    align-items: center;
   }
 
   .footer-top .footer-links ul li {
