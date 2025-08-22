@@ -1,46 +1,45 @@
 <footer class="site-footer">
   <!-- Footer atas -->
   <div class="footer-top">
-    <div class="container d-flex flex-wrap justify-content-between align-items-start gap-3">
+    <div class="container d-flex flex-wrap justify-content-between align-items-start">
+      
       <!-- Powered by + Language selector -->
       <div class="powered-section d-flex flex-column flex-md-row align-items-start align-md-items-center gap-3 text-white">
         <div class="logos d-flex flex-wrap align-items-center gap-2">
           <span><strong>Powered by</strong></span>
-          <a href="https://data.go.id/" target="_blank">
+          <a href="https://data.go.id/" target="_blank" class="logo-hover">
             <img src="{{ h.url_for_static('/base/images/logo_sdi.png') }}" width="100" alt="data.go.id">
           </a>
-          <a href="https://satudata.sulutprov.go.id/" target="_blank">
+          <a href="https://satudata.sulutprov.go.id/" target="_blank" class="logo-hover">
             <img src="{{ h.url_for_static('/base/images/satudata_sulut.png') }}" width="100" alt="satudata.sulutprov.go.id">
           </a>
         </div>
-        <!-- Language selector (optional) -->
-        <!-- <div class="footer-lang">
-          {% block footer_lang %}
-            {% snippet "snippets/language_selector.html" %}
-          {% endblock %}
-        </div> -->
+        {% block footer_lang %}
+          {% snippet "snippets/language_selector.html" %}
+        {% endblock %}
       </div>
 
       <!-- Info kontak & Tentang Satu Data ORAS -->
-      <ul class="list-unstyled footer-links d-flex flex-column flex-md-row gap-3 text-white">
-        <li><a href="/about">{{ _('Tentang Satu Data ORAS') }}</a></li>
-        <li><a href="mailto:info@boltimkab.go.id"><i class="fas fa-envelope"></i> info@boltimkab.go.id</a></li>
-        <li><a href="tel:+628123456789"><i class="fas fa-phone"></i> Call Us: +62 812-3456-789</a></li>
+      <ul class="list-unstyled footer-links d-flex flex-column flex-md-row gap-3 mt-3 mt-md-0 text-white">
+        <li><a href="/about" class="link-hover">{{ _('Tentang Satu Data ORAS') }}</a></li>
+        <li><a href="mailto:info@boltimkab.go.id" class="link-hover"><i class="fas fa-envelope"></i> info@boltimkab.go.id</a></li>
+        <li><a href="tel:+628123456789" class="link-hover"><i class="fas fa-phone"></i> Call Us: +62 812-3456-789</a></li>
       </ul>
 
-      <!-- Logo tambahan -->
-      <div class="footer-logos d-flex flex-wrap gap-3 justify-content-center justify-content-md-end align-items-center">
-        <a href="https://diskominfo.boltimkab.go.id" target="_blank">Built by Bidang Persandian & Statistik</a>
-        <a href="https://boltimkab.go.id/beranda" target="_blank">
+      <!-- Logo tambahan di kanan -->
+      <div class="footer-logos d-flex flex-wrap gap-3 justify-content-end align-items-center mt-3 mt-md-0">
+        <a href="https://diskominfo.boltimkab.go.id" target="_blank" class="logo-hover">Built by Bidang Persandian & Statistik</a>
+        <a href="https://boltimkab.go.id/beranda" target="_blank" class="logo-hover">
           <img src="{{ h.url_for_static('/base/images/diskominfo.png') }}" width="120" alt="diskominfo">
         </a>
-        <a href="https://boltimkab.go.id/beranda" target="_blank">
+        <a href="https://boltimkab.go.id/beranda" target="_blank" class="logo-hover">
           <img src="{{ h.url_for_static('/base/images/portal_boltim.png') }}" width="120" alt="boltimkab">
         </a>
-        <a href="https://boltimkab.go.id/" target="_blank">
+        <a href="https://boltimkab.go.id/" target="_blank" class="logo-hover">
           <img src="{{ h.url_for_static('/base/images/LOGO_BOLTIM_BANGKIT.png') }}" width="150" alt="boltimkab.go.id">
         </a>
       </div>
+
     </div>
   </div>
 
@@ -51,72 +50,75 @@
         &copy; 2025 Dinas Komunikasi dan Informatika Kabupaten Bolaang Mongondow Timur. All rights reserved.
       </div>
       <div class="social-icons d-flex gap-2 mt-2 mt-md-0">
-        <a href="https://web.facebook.com/pemda.kabupaten.boltim" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/pemdakabupatenboltim/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.youtube.com/@PemdaKabupatenBoltim" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://web.facebook.com/pemda.kabupaten.boltim" target="_blank" class="social-hover"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/pemdakabupatenboltim/" target="_blank" class="social-hover"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@PemdaKabupatenBoltim" target="_blank" class="social-hover"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
   </div>
 </footer>
 
 <style>
-/* General Footer */
+/* Umum */
 .site-footer {
   width: 100%;
   font-family: 'Arial', sans-serif;
   color: #fff;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Sticky Footer */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.site-footer {
   margin-top: auto;
 }
 
-/* Footer Top */
+/* Footer atas */
 .footer-top {
   background: linear-gradient(135deg, #2c3e50, #3498db, #2c3e50);
   padding: 30px 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .footer-top a {
   color: #fff;
   text-decoration: none;
-  transition: all 0.3s;
-}
-
-.footer-top a:hover {
-  color: #f1c40f;
-  transform: scale(1.05);
+  transition: all 0.4s ease;
 }
 
 .footer-top i {
   margin-right: 5px;
 }
 
-/* Footer Links */
-.footer-links {
-  flex-wrap: wrap;
-}
-
+/* Footer links */
 .footer-links a {
   color: #fff;
-  transition: color 0.3s, transform 0.3s;
+  transition: all 0.3s ease;
 }
 
-.footer-links a:hover {
+/* Hover efek untuk semua logo/link */
+.logo-hover, .link-hover {
+  display: inline-block;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+}
+
+.logo-hover:hover, .link-hover:hover {
+  transform: translateY(-5px) scale(1.1);
+  background: rgba(241, 196, 15, 0.15);
+  padding: 2px 6px;
+  border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(241, 196, 15, 0.6);
+}
+
+/* Social icons hover efek */
+.social-hover {
+  display: inline-block;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.social-hover:hover {
+  transform: rotate(-15deg) scale(1.3);
   color: #f1c40f;
-  transform: scale(1.05);
 }
 
-/* Powered Section */
+/* Powered by section */
 .powered-section {
   opacity: 0;
   transform: translateY(20px);
@@ -124,25 +126,18 @@ body {
   animation-delay: 0.5s;
 }
 
-.powered-section .logos {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
+.powered-section .logos a,
+.powered-section .logos img {
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
 }
 
-.footer-logos a,
-.footer-logos img {
-  transition: transform 0.3s, opacity 0.3s;
+/* Footer logos kanan */
+.footer-logos img,
+.footer-logos a {
+  vertical-align: middle;
 }
 
-.footer-logos a:hover,
-.footer-logos img:hover {
-  transform: scale(1.1);
-  opacity: 0.85;
-}
-
-/* Footer Bottom */
+/* Footer bawah */
 .footer-bottom {
   background: linear-gradient(135deg, #34495e, #2c3e50);
   padding: 15px 0;
@@ -150,17 +145,11 @@ body {
 }
 
 .footer-bottom .social-icons a {
-  color: #fff;
   font-size: 1.3rem;
-  transition: transform 0.3s, color 0.3s;
+  transition: all 0.3s ease;
 }
 
-.footer-bottom .social-icons a:hover {
-  color: #f1c40f;
-  transform: scale(1.2);
-}
-
-/* Animasi */
+/* Animasi fade in */
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -168,27 +157,30 @@ body {
   }
 }
 
-/* Footer Logos */
-.footer-logos img {
-  vertical-align: middle;
+/* Sticky footer */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Responsive */
+/* Responsif */
 @media (max-width: 768px) {
   .footer-top {
     flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
-  .powered-section, .footer-links, .footer-logos {
+  .powered-section,
+  .footer-links,
+  .footer-logos {
     justify-content: center !important;
-    align-items: center !important;
   }
 
   .footer-links {
     flex-direction: column !important;
     gap: 5px;
-    margin-top: 10px;
   }
 
   .footer-logos {
@@ -203,5 +195,5 @@ body {
 }
 </style>
 
-<!-- FontAwesome untuk ikon sosial media & kontak -->
+<!-- FontAwesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
