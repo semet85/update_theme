@@ -1,53 +1,141 @@
 <footer class="site-footer">
-  <div class="container">
-    {% block footer_content %}
-    <div class="row">
-      <div class="col-md-8 footer-links">
-        {% block footer_nav %}
-          
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 footer-links">
           <ul class="list-unstyled">
-            {% block footer_links_ckan %}
-              <!-- {% set api_url = 'http://docs.ckan.org/en/{0}/api/'.format(g.ckan_doc_version) %} -->
-              <!-- <li><a href="{{ api_url }}">{{ _('CKAN API') }}</a></li> -->
-              <li><a href="/about">{{ _('Tentang Satu Data ORAS') }}</a></li>
-              <li><a href="https://diskominfo.boltimkab.go.id" target="_blank">Built by<br/> <img src="{{ h.url_for_static('/base/images/diskominfo.png') }}" width="150" alt="diskominfo.boltimkab.go.id"></a></li>
-              <li><a href="https://boltimkab.go.id/beranda" target="_blank"><img src="{{ h.url_for_static('/base/images/portal_boltim.png') }}" width="150" alt="boltimkab/beranda.go.id"></a></li>
-              <li><a href="https://boltimkab.go.id/" target="_blank"><img src="{{ h.url_for_static('/base/images/LOGO_BOLTIM_BANGKIT.png') }}" width="150" alt="boltimkab.go.id"></a></li>
-            {% endblock %}
+            <li><a href="/about">{{ _('Tentang Satu Data ORAS') }}</a></li>
+            <li>
+              <a href="https://diskominfo.boltimkab.go.id" target="_blank">
+                Built by <img src="{{ h.url_for_static('/base/images/diskominfo.png') }}" width="120" alt="diskominfo">
+              </a>
+            </li>
+            <li>
+              <a href="https://boltimkab.go.id/beranda" target="_blank">
+                <img src="{{ h.url_for_static('/base/images/portal_boltim.png') }}" width="120" alt="boltimkab">
+              </a>
+            </li>
           </ul>
-        {% endblock %}
+        </div>
+
+        <div class="col-md-4 attribution fade-in">
+          <div class="powered-by">
+            <span><strong>Powered by</strong></span>
+            <a href="https://data.go.id/" target="_blank">
+              <img src="{{ h.url_for_static('/base/images/logo_sdi.png') }}" width="100" alt="data.go.id">
+            </a>
+            <a href="https://satudata.sulutprov.go.id/" target="_blank">
+              <img src="{{ h.url_for_static('/base/images/satudata_sulut.png') }}" width="100" alt="satudata.sulutprov.go.id">
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="col-md-4 attribution">
-          {% block footer_attribution %}
-            {% set logo_url = h.url_for_static('/base/images/logo_sdi.png') %}
-            {% set logo_sulut = h.url_for_static('/base/images/satudata_sulut.png') %}
-
-            <div style="display: flex; align-items: center; gap: 20px;">
-              <span>
-                {% trans %}<strong>Powered by</strong>{% endtrans %}
-              </span>
-              <a href="https://data.go.id/" target="_blank">
-                <img src="{{ logo_url }}" width="150" alt="data.go.id">
-              </a>
-              <a href="https://satudata.sulutprov.go.id/" target="_blank">
-                <img src="{{ logo_sulut }}" width="150" alt="satudata.sulutprov.go.id">
-              </a>
-            </div>
-          {% endblock %}
-
-
-          {% block footer_lang %}
-            {% snippet "snippets/language_selector.html" %}
-          {% endblock %}
-      </div>
-
     </div>
-    {% endblock %}
   </div>
 
-  {% block footer_debug %}
-    {% if g.debug %}
-      {% include 'snippets/debug.html' %}
-    {% endif %}
-  {% endblock %}
+  <div class="footer-bottom">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="copyright">
+        &copy; {{ now().year }} Pemerintah Kabupaten Bolaang Mongondow Timur. All rights reserved.
+      </div>
+      <div class="social-icons">
+        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
 </footer>
+
+<style>
+.site-footer {
+  width: 100%;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+}
+
+.footer-top {
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  padding: 30px 0;
+}
+
+.footer-top a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-top a:hover {
+  color: #f1c40f;
+}
+
+.powered-by {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer-bottom {
+  background: linear-gradient(135deg, #34495e, #2c3e50);
+  padding: 15px 0;
+  font-size: 0.9rem;
+}
+
+.footer-bottom .social-icons a {
+  color: #fff;
+  margin-left: 10px;
+  font-size: 1.3rem;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.footer-bottom .social-icons a:hover {
+  color: #f1c40f;
+  transform: scale(1.2);
+}
+
+.footer-bottom .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Sticky footer */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-footer {
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .footer-bottom .container {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .powered-by {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+</style>
+
+<!-- FontAwesome untuk ikon sosial media -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
