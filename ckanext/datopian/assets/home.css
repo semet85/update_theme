@@ -270,6 +270,7 @@ img {
   background-position: center center !important;
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
+  opacity: 0.7 !important;
 }
 [role=main] {
   min-height: 400px;
