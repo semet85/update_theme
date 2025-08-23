@@ -259,7 +259,7 @@ img {
 }
 .hero {
   background: 
-    url('/base/images/blue_back.jpg') center center no-repeat !important;
+    url('/base/images/kantor.png') center center no-repeat !important;
   background-size: cover !important;
   background-position: center center !important;
 }
@@ -299,7 +299,7 @@ img {
 .site-footer {
   margin-top: 20px !important;
   padding-top: 20px !important;
-  background: #202020 !important;
+  background: #535353 !important;
 }
 .form-control {
   border-radius: 0;
