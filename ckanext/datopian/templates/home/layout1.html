@@ -53,25 +53,29 @@
           <p class="text-center">{{ _('Tidak ada kategori yang ditemukan.') }}</p>
         {% else %}
         <div class="group-carousel">
-          <div class="carousel-track">
-            {% for group in groups %}
-            <div class="group-card">
-              <a href="{{ h.url_for(controller='group', action='read', id=group.name) }}">
-                <img src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.title }}">
-                <h5>{{ group.title }}</h5>
-              </a>
+          <button class="carousel-btn left-btn">&#10094;</button>
+          <div class="carousel-track-wrapper">
+            <div class="carousel-track">
+              {% for group in groups %}
+              <div class="group-card">
+                <a href="{{ h.url_for(controller='group', action='read', id=group.name) }}">
+                  <img src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.title }}">
+                  <h5>{{ group.title }}</h5>
+                </a>
+              </div>
+              {% endfor %}
+              <!-- Duplikasi untuk infinite scroll -->
+              {% for group in groups %}
+              <div class="group-card">
+                <a href="{{ h.url_for(controller='group', action='read', id=group.name) }}">
+                  <img src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.title }}">
+                  <h5>{{ group.title }}</h5>
+                </a>
+              </div>
+              {% endfor %}
             </div>
-            {% endfor %}
-            <!-- Duplikasi untuk infinite scroll -->
-            {% for group in groups %}
-            <div class="group-card">
-              <a href="{{ h.url_for(controller='group', action='read', id=group.name) }}">
-                <img src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.title }}">
-                <h5>{{ group.title }}</h5>
-              </a>
-            </div>
-            {% endfor %}
           </div>
+          <button class="carousel-btn right-btn">&#10095;</button>
         </div>
         {% endif %}
 
@@ -81,13 +85,15 @@
           overflow: hidden;
           width: 100%;
         }
+        .carousel-track-wrapper {
+          overflow: hidden;
+        }
         .carousel-track {
           display: flex;
-          width: max-content;
-          animation: scroll 20s linear infinite;
+          transition: transform 0.5s linear;
         }
         .group-carousel:hover .carousel-track {
-          animation-play-state: paused; /* pause saat hover */
+          animation-play-state: paused;
         }
         .group-card {
           min-width: 200px;
@@ -101,12 +107,20 @@
           object-fit: cover;
           border-radius: 5px;
         }
-
-        /* Keyframes untuk infinite scroll */
-        @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+        .carousel-btn {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(0,0,0,0.5);
+          color: #fff;
+          border: none;
+          font-size: 24px;
+          padding: 5px 10px;
+          cursor: pointer;
+          z-index: 10;
         }
+        .left-btn { left: 5px; }
+        .right-btn { right: 5px; }
 
         /* Responsive */
         @media(max-width: 768px) {
@@ -114,11 +128,66 @@
         }
         </style>
 
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const track = document.querySelector('.carousel-track');
+          const cards = document.querySelectorAll('.group-card');
+          const leftBtn = document.querySelector('.left-btn');
+          const rightBtn = document.querySelector('.right-btn');
+          const totalCards = cards.length;
+          let index = 0;
+          let autoSlide;
+
+          function moveTrack() {
+            const cardWidth = cards[0].offsetWidth + 20; // width + margin
+            track.style.transform = `translateX(${-cardWidth * index}px)`;
+          }
+
+          function startAutoSlide() {
+            autoSlide = setInterval(() => {
+              index++;
+              if(index >= totalCards / 2) index = 0; // loop
+              moveTrack();
+            }, 3000);
+          }
+
+          function resetAutoSlide() {
+            clearInterval(autoSlide);
+            startAutoSlide();
+          }
+
+          leftBtn.addEventListener('click', () => {
+            index--;
+            if(index < 0) index = (totalCards / 2) - 1;
+            moveTrack();
+            resetAutoSlide();
+          });
+
+          rightBtn.addEventListener('click', () => {
+            index++;
+            if(index >= totalCards / 2) index = 0;
+            moveTrack();
+            resetAutoSlide();
+          });
+
+          // Pause on hover
+          track.parentElement.addEventListener('mouseenter', () => clearInterval(autoSlide));
+          track.parentElement.addEventListener('mouseleave', startAutoSlide);
+
+          // Inisialisasi
+          moveTrack();
+          startAutoSlide();
+
+          window.addEventListener('resize', moveTrack);
+        });
+        </script>
+
         {% endblock %}
       </div>
     </div>
   </div>
 </div>
+
 
 
 
