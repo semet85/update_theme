@@ -18,7 +18,7 @@
           {% snippet 'home/snippets/stats.html' %}
         {% endblock %}
       </div>
-    </div>  
+    </div>
   </div>
 </div>
 
@@ -40,51 +40,58 @@
   </div>
 </div>
 
+<!-- Topik Data Carousel -->
 <div class="main">
   <div class="container">
     <div class="row row4">
       <div class="col-md-12">
         {% block group_list %}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-        <h2 class="text-center mb-8 text-2xl font-semibold">
-          <i class="fas fa-folder-open"></i> Topik Data
-        </h2>
-
+        <h2 class="text-center mb-4"> <i class="fas fa-folder-open"></i> Topik Data</h2>
         {% set groups = h.get_featured_groups(count=10) %}
         {% if not groups %}
           <p class="text-center">{{ _('Tidak ada kategori yang ditemukan.') }}</p>
         {% else %}
-        <div class="relative">
-          <!-- Tombol navigasi kiri -->
-          <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-700 text-gray-800 dark:text-white p-2 rounded-full shadow z-10 left-btn">
-            &#10094;
-          </button>
+        <div class="group-carousel relative overflow-hidden">
+          <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white text-gray-800 p-2 rounded-full shadow prev-btn">&#10094;</button>
+          <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white text-gray-800 p-2 rounded-full shadow next-btn">&#10095;</button>
 
-          <!-- Tombol navigasi kanan -->
-          <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-700 text-gray-800 dark:text-white p-2 rounded-full shadow z-10 right-btn">
-            &#10095;
-          </button>
-
-          <div class="overflow-x-hidden">
-            <div class="carousel-track flex gap-4 transition-transform duration-300">
-              {% for group in groups %}
-              <div class="flex-none w-72">
-                <div class="rounded-xl border bg-white shadow hover:shadow-lg overflow-hidden transition-shadow duration-300 dark:bg-gray-800">
-                  <a href="{{ h.url_for(controller='group', action='read', id=group.name) }}">
-                    <div class="p-4 space-y-4">
-                      <div class="flex items-center gap-3">
-                        <span class="flex-shrink-0 h-12 w-12 rounded-full overflow-hidden">
-                          <img class="h-full w-full object-cover" src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.title }}">
-                        </span>
-                        <span class="line-clamp-2 font-medium text-lg">{{ group.title }}</span>
-                      </div>
+          <div class="carousel-track flex gap-4">
+            {% for group in groups %}
+            <div class="group-card flex-none w-56 opacity-50 scale-90 transition-transform duration-300">
+              <div class="rounded-xl border bg-white shadow hover:shadow-lg overflow-hidden transition-shadow duration-300">
+                <a href="{{ h.url_for(controller='group', action='read', id=group.name) }}">
+                  <div class="p-4 space-y-4">
+                    <div class="flex items-center gap-3">
+                      <span class="flex-shrink-0 h-12 w-12 rounded-full overflow-hidden">
+                        <img class="h-full w-full object-cover" src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.title }}">
+                      </span>
+                      <span class="line-clamp-2 font-medium text-lg">{{ group.title }}</span>
                     </div>
-                    <img class="w-full h-48 object-cover" src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.title }}">
-                  </a>
-                </div>
+                  </div>
+                  <img class="w-full h-48 object-cover" src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.title }}">
+                </a>
               </div>
-              {% endfor %}
             </div>
+            {% endfor %}
+            {% for group in groups %}
+            <!-- Duplicate for seamless scroll -->
+            <div class="group-card flex-none w-56 opacity-50 scale-90 transition-transform duration-300">
+              <div class="rounded-xl border bg-white shadow hover:shadow-lg overflow-hidden transition-shadow duration-300">
+                <a href="{{ h.url_for(controller='group', action='read', id=group.name) }}">
+                  <div class="p-4 space-y-4">
+                    <div class="flex items-center gap-3">
+                      <span class="flex-shrink-0 h-12 w-12 rounded-full overflow-hidden">
+                        <img class="h-full w-full object-cover" src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.title }}">
+                      </span>
+                      <span class="line-clamp-2 font-medium text-lg">{{ group.title }}</span>
+                    </div>
+                  </div>
+                  <img class="w-full h-48 object-cover" src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.title }}">
+                </a>
+              </div>
+            </div>
+            {% endfor %}
           </div>
         </div>
         {% endif %}
@@ -94,6 +101,7 @@
   </div>
 </div>
 
+<!-- Statistik Website -->
 <div class="main">
   <div class="container">
     <div class="row mt-5">
@@ -101,7 +109,6 @@
         <h2 class="text-center mb-4">
           <i class="fas fa-chart-line"></i> Statistik Website
         </h2>
-
         <div class="stats-wrapper2">
           <div class="stats-grid2">
             <div class="stat-card2 text-center">
@@ -121,71 +128,85 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </div>
 
 <style>
-/* Carousel Group */
-.carousel-track { display: flex; gap: 16px; transition: transform 0.3s; }
-.flex-none { flex: 0 0 auto; }
-.rounded-xl { border-radius: 12px; }
-.shadow { box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
-.shadow:hover { transform: translateY(-5px); }
+/* Carousel Topik Data */
+.group-carousel { position: relative; width: 100%; }
+.carousel-track { display: flex; gap: 16px; flex-wrap: nowrap; will-change: transform; scroll-behavior: smooth; }
+.group-card { flex: 0 0 auto; opacity: 0.5; transform: scale(0.9); }
+.group-card.active { opacity: 1; transform: scale(1); }
+.carousel-btn { cursor: pointer; z-index: 10; }
 
-/* Tombol navigasi */
-.left-btn, .right-btn { cursor: pointer; font-size: 20px; }
-
-/* Statistik Website */
+/* Statistik */
 .stats-wrapper2 { display: flex; justify-content: center; margin-top: 20px; }
-.stats-grid2 { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; max-width: 900px; }
-.stat-card2 { background: linear-gradient(135deg,#3498db,#2980b9); color: #fff; padding:30px 20px; border-radius:15px; width:220px; height:200px; display:flex; flex-direction:column; justify-content:center; align-items:center; transition:0.3s; box-shadow:0 6px 12px rgba(0,0,0,0.15);}
-.stat-card2:hover { transform: translateY(-8px); box-shadow:0 12px 20px rgba(0,0,0,0.25);}
-.stat-card2 i { font-size:42px; margin-bottom:15px; }
-.stat-number2 { font-size:1.8rem; font-weight:bold; }
-.stat-label2 { font-size:1.2rem; margin-top:5px; font-weight:500; }
-/* Responsive */
-@media (max-width:992px) { .stat-card2 { width:45%; height:180px; } }
-@media (max-width:576px) { .stat-card2 { width:100%; height:auto; padding:20px; } }
+.stats-grid2 { display: flex; justify-content: center; align-items: center; gap: 25px; flex-wrap: wrap; max-width: 900px; }
+.stat-card2 { background: linear-gradient(135deg, #3498db, #2980b9); color: #fff; padding: 30px 20px; border-radius: 15px; width: 220px; height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: 0.3s; box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+.stat-card2:hover { transform: translateY(-8px); box-shadow: 0 12px 20px rgba(0,0,0,0.25); }
+.stat-card2 i { font-size: 42px; margin-bottom: 15px; }
+.stat-number2 { font-size: 1.8rem; font-weight: bold; }
+.stat-label2 { font-size: 1.2rem; margin-top: 5px; font-weight: 500; }
+@media (max-width: 992px) { .stat-card2 { width: 45%; height: 180px; } }
+@media (max-width: 576px) { .stat-card2 { width: 100%; height: auto; padding: 20px; } }
 </style>
 
 <script>
-/* Carousel Script */
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function() {
   const track = document.querySelector(".carousel-track");
-  const leftBtn = document.querySelector(".left-btn");
-  const rightBtn = document.querySelector(".right-btn");
-  const cardWidth = track.querySelector('.flex-none').offsetWidth + 16;
+  const cards = Array.from(document.querySelectorAll(".group-card"));
+  const leftBtn = document.querySelector(".prev-btn");
+  const rightBtn = document.querySelector(".next-btn");
+  const cardWidth = cards[0].offsetWidth + 16;
 
-  let position = 0;
+  let scrollSpeed = 1;
+  let rafId;
 
-  rightBtn.addEventListener("click", () => {
-    const maxScroll = -(track.scrollWidth - track.parentElement.offsetWidth);
-    position -= cardWidth;
-    if(position < maxScroll) position = maxScroll;
-    track.style.transform = `translateX(${position}px)`;
-  });
+  function autoScroll() {
+    track.scrollLeft += scrollSpeed;
+    if(track.scrollLeft >= track.scrollWidth / 2) track.scrollLeft = 0;
+    updateActiveCard();
+    rafId = requestAnimationFrame(autoScroll);
+  }
 
-  leftBtn.addEventListener("click", () => {
-    position += cardWidth;
-    if(position > 0) position = 0;
-    track.style.transform = `translateX(${position}px)`;
-  });
+  rafId = requestAnimationFrame(autoScroll);
 
-  /* Statistik CountUp */
+  track.addEventListener("mouseenter", () => cancelAnimationFrame(rafId));
+  track.addEventListener("mouseleave", () => rafId = requestAnimationFrame(autoScroll));
+
+  leftBtn.addEventListener("click", () => track.scrollBy({left: -cardWidth, behavior: "smooth"}));
+  rightBtn.addEventListener("click", () => track.scrollBy({left: cardWidth, behavior: "smooth"}));
+
+  function updateActiveCard() {
+    const trackCenter = track.scrollLeft + track.offsetWidth / 2;
+    cards.forEach(card => {
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const diff = Math.abs(trackCenter - cardCenter);
+      card.classList.toggle("active", diff < card.offsetWidth / 2);
+    });
+  }
+
+  // Mobile swipe
+  let startX = 0, isDragging = false;
+  track.addEventListener("touchstart", e => { startX = e.touches[0].pageX; isDragging = true; cancelAnimationFrame(rafId); });
+  track.addEventListener("touchmove", e => { if(!isDragging) return; const currentX = e.touches[0].pageX; track.scrollLeft += startX - currentX; startX = currentX; updateActiveCard(); });
+  track.addEventListener("touchend", () => { isDragging = false; rafId = requestAnimationFrame(autoScroll); });
+
+  // Count Up Statistik Website
   const counters = document.querySelectorAll(".stat-number2");
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if(entry.isIntersecting && !entry.target.classList.contains("counted")) {
-        const target = +entry.target.getAttribute("data-target");
+      if(entry.isIntersecting && !entry.target.classList.contains("counted")){
+        let target = +entry.target.getAttribute("data-target");
         let start = 0;
-        const stepTime = Math.abs(Math.floor(1500 / target));
-        const timer = setInterval(()=>{
-          start++;
+        let duration = 1500;
+        let stepTime = Math.abs(Math.floor(duration / target));
+        const timer = setInterval(() => {
+          start += 1;
           entry.target.textContent = start.toLocaleString();
-          if(start>=target) clearInterval(timer);
+          if(start >= target) clearInterval(timer);
         }, stepTime);
         entry.target.classList.add("counted");
       }
@@ -193,4 +214,13 @@ document.addEventListener("DOMContentLoaded", function(){
   }, { threshold: 0.5 });
   counters.forEach(counter => observer.observe(counter));
 });
+</script>
+
+<!-- Google Tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LGD3KZ8K7Q"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-LGD3KZ8K7Q');
 </script>
