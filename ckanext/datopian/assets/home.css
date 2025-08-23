@@ -266,7 +266,7 @@ img {
 .naruto {
   background: 
     url('/base/images/blue_back.jpg') center center no-repeat !important;
-  background-size: contain !important;
+  background-size: cover !important;
   background-position: center center !important;
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
