@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <div class="stats-wrapper">
-  <h2 class="stats-title text-center mb-4"> <i class="fas fa-chart-bar"></i> Statistik</h2>
+  <h2 class="stats-title text-center mb-4"> <i class="fas fa-chart-bar"></i> Satu Data ORAS</h2>
 
   <div class="stats-grid">
 
@@ -10,14 +10,14 @@
     <a href="{{ h.url_for('dataset.search') }}" class="stat-card dataset">
       <i class="fa fa-database icon"></i>
       <div class="stat-number" data-count="{{ stats.dataset_count }}">0</div>
-      <div class="stat-label">{{ _('Dataset') if stats.dataset_count == 1 else _('Datasets') }}</div>
+      <div class="stat-label">{{ _('Dataset Tersedia') if stats.dataset_count == 1 else _('Dataset Tersedia') }}</div>
     </a>
 
     <!-- Organisasi Card -->
     <a href="{{ h.url_for('organization.index') }}" class="stat-card organization">
       <i class="fa fa-building icon"></i>
       <div class="stat-number" data-count="{{ stats.organization_count }}">0</div>
-      <div class="stat-label">{{ _('ORGANISASI PERANGKAT DAERAH') if stats.organization_count == 1 else _('OPD') }}</div>
+      <div class="stat-label">{{ _('OPD Terhubung') if stats.organization_count == 1 else _('OPD Terhubung') }}</div>
     </a>
 
     <!-- Kategori Card -->
