@@ -53,8 +53,6 @@
           <p class="text-center">{{ _('Tidak ada kategori yang ditemukan.') }}</p>
         {% else %}
         <div class="group-carousel">
-          <button class="carousel-btn left-btn">&#10094;</button>
-          
           <div class="carousel-track">
             {% for group in groups %}
             <div class="group-card">
@@ -64,12 +62,19 @@
               </a>
             </div>
             {% endfor %}
+            <!-- Duplikasi untuk infinite scroll -->
+            {% for group in groups %}
+            <div class="group-card">
+              <a href="{{ h.url_for(controller='group', action='read', id=group.name) }}">
+                <img src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ group.title }}">
+                <h5>{{ group.title }}</h5>
+              </a>
+            </div>
+            {% endfor %}
           </div>
-          
-          <button class="carousel-btn right-btn">&#10095;</button>
         </div>
         {% endif %}
-        
+
         <style>
         .group-carousel {
           position: relative;
@@ -78,12 +83,17 @@
         }
         .carousel-track {
           display: flex;
-          transition: transform 0.5s ease-in-out;
+          width: max-content;
+          animation: scroll 20s linear infinite;
+        }
+        .group-carousel:hover .carousel-track {
+          animation-play-state: paused; /* pause saat hover */
         }
         .group-card {
           min-width: 200px;
           margin: 0 10px;
           text-align: center;
+          flex-shrink: 0;
         }
         .group-card img {
           width: 100%;
@@ -91,78 +101,25 @@
           object-fit: cover;
           border-radius: 5px;
         }
-        .carousel-btn {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          background: rgba(0,0,0,0.5);
-          color: #fff;
-          border: none;
-          font-size: 24px;
-          padding: 5px 10px;
-          cursor: pointer;
-          z-index: 10;
+
+        /* Keyframes untuk infinite scroll */
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
         }
-        .left-btn { left: 5px; }
-        .right-btn { right: 5px; }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+          .group-card { min-width: 150px; }
+        }
         </style>
-
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          const track = document.querySelector('.carousel-track');
-          const cards = document.querySelectorAll('.group-card');
-          const leftBtn = document.querySelector('.left-btn');
-          const rightBtn = document.querySelector('.right-btn');
-          const cardWidth = cards[0].offsetWidth + 20; // width + margin
-          let index = 0;
-
-          function moveCarousel() {
-            if(index >= cards.length) index = 0;
-            track.style.transform = `translateX(${-cardWidth * index}px)`;
-          }
-
-          // Auto slide setiap 3 detik
-          let autoSlide = setInterval(() => {
-            index++;
-            if(index >= cards.length) index = 0;
-            moveCarousel();
-          }, 3000);
-
-          // Tombol kiri/kanan
-          leftBtn.addEventListener('click', () => {
-            index--;
-            if(index < 0) index = cards.length - 1;
-            moveCarousel();
-            resetInterval();
-          });
-          rightBtn.addEventListener('click', () => {
-            index++;
-            if(index >= cards.length) index = 0;
-            moveCarousel();
-            resetInterval();
-          });
-
-          function resetInterval() {
-            clearInterval(autoSlide);
-            autoSlide = setInterval(() => {
-              index++;
-              if(index >= cards.length) index = 0;
-              moveCarousel();
-            }, 3000);
-          }
-
-          // Responsif: update cardWidth saat resize
-          window.addEventListener('resize', () => {
-            moveCarousel();
-          });
-        });
-        </script>
 
         {% endblock %}
       </div>
     </div>
   </div>
 </div>
+
 
 
 <div class="main">
