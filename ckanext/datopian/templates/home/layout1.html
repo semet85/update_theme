@@ -118,7 +118,14 @@
           padding: 5px 10px;
           cursor: pointer;
           z-index: 10;
+          transition: color 0.2s ease-in-out; /* Tambahkan transisi untuk efek yang lebih halus */
         }
+
+        .carousel-btn:hover {
+          color: rgba(0, 0, 0, 0.5); /* Warna simbol panah menjadi hitam semi-transparan saat hover */
+          background: rgba(0,0,0,0.7); /* Tambahkan sedikit perubahan pada background saat hover (opsional) */
+        }
+
         .left-btn { left: 5px; }
         .right-btn { right: 5px; }
 
