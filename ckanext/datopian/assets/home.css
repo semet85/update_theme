@@ -260,7 +260,7 @@ img {
 .hero {
   background: 
     url('/base/images/kantor.png') center center no-repeat !important;
-  background-size: cover !important;
+  background-size: contain !important;
   background-position: center center !important;
 }
 .naruto {
