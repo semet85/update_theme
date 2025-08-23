@@ -83,7 +83,9 @@ do:
      (if "apt update not working" use this link sed -i 's|http://archive.ubuntu.com/ubuntu|http://id.archive.ubuntu.com/ubuntu|g' /etc/apt/sources.list
     apt update )
     nano /srv/app/production.ini
-    ( find ckan.plugin and then add "datopian" on the lasted row)
+    ( find ckan.plugins and then add "datopian" on the lasted row)
+    Ctrl + O
+    Ctrl + X
     exit
     docker compose restart ckan
 
