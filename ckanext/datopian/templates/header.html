@@ -6,7 +6,7 @@
     <div class="header-top">
       
       <!-- Logo -->
-      <hgroup class="{{ g.header_class }} site-logo">
+      <hgroup class="{{ g.header_class }} navbar-left">
         {% if g.site_logo %}
           <a class="logo" href="{{ h.url_for('home.index') }}">
             <img src="{{ h.url_for_static_or_external(g.site_logo) }}" alt="{{ g.site_title }}" />
@@ -89,12 +89,14 @@
 <style>
   header.masthead {
     position: fixed;
-    top: 0; left: 0; width: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1030;
-    padding: 8px 0;
-    background: #535353;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
+    padding: 8px 0;   /* 🔹 dikurangi supaya lebih ramping */
+    background: #535353;     /* Langsung abu gelap */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   }
   body { padding-top: 65px; }
 
@@ -106,6 +108,20 @@
 
   header.masthead img { max-height: 40px; transition: max-height 0.3s ease; }
   header.masthead.scrolled img { max-height: 33px; }
+
+  /* Style username di kanan */
+  .navbar-right .username {
+    font-weight: 500;
+    margin-left: 6px;
+    color: #fff;
+  }
+  .navbar-right a {
+    color: #f5f5f5;
+    transition: color 0.2s;
+  }
+  .navbar-right a:hover {
+    color: #ffd966;
+  }
 
   .header-top {
     display: flex;
