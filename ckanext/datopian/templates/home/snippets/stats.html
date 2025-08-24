@@ -8,7 +8,7 @@
 
 <!-- Dataset Card -->
 <a href="{{ h.url_for('dataset.search') }}" class="stat-card dataset">
-  <img src="/base/images/dataset.png" alt="Dataset Icon" class="icon" style="width:40px; height:40px;" />
+  <img src="/base/images/dataset.png" alt="Dataset Icon" class="icon" style="width:110px; height:110px;" />
   <div class="stat-number" data-count="{{ stats.dataset_count }}">0</div>
   <div class="stat-label">
     {{ _('Dataset Tersedia') if stats.dataset_count == 1 else _('Dataset Tersedia') }}
@@ -17,7 +17,7 @@
 
 <!-- Organisasi Card -->
 <a href="{{ h.url_for('organization.index') }}" class="stat-card organization">
-  <img src="/base/images/opd.png" alt="Organisasi Icon" class="icon" style="width:40px; height:40px;" />
+  <img src="/base/images/opd.png" alt="Organisasi Icon" class="icon" style="width:110px; height:110px;" />
   <div class="stat-number" data-count="{{ stats.organization_count }}">0</div>
   <div class="stat-label">
     {{ _('OPD Terhubung') if stats.organization_count == 1 else _('OPD Terhubung') }}
@@ -26,7 +26,7 @@
 
 <!-- Kategori Card -->
 <a href="{{ h.url_for('group.index') }}" class="stat-card category">
-  <img src="/base/images/kategori.png" alt="Kategori Icon" class="icon" style="width:40px; height:40px;" />
+  <img src="/base/images/kategori.png" alt="Kategori Icon" class="icon" style="width:110px; height:110px;" />
   <div class="stat-number" data-count="{{ stats.group_count }}">0</div>
   <div class="stat-label">
     {{ _('Kategori') if stats.group_count == 1 else _('Kategori') }}
