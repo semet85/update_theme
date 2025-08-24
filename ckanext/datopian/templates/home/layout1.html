@@ -135,6 +135,8 @@
         }
         </style>
 
+<script src="https://apis.google.com/js/api.js"></script>
+
         <script>
         document.addEventListener('DOMContentLoaded', function() {
           const track = document.querySelector('.carousel-track');
@@ -196,106 +198,8 @@
 </div>
 
 
-<script src="https://apis.google.com/js/api.js"></script>
 
-<div class="main">
-  <div class="container">
-    <div class="row mt-5">
-      <div class="col-12">
-        <h2 class="text-center mb-4">
-          <i class="fas fa-chart-line"></i> Statistik Website
-        </h2>
 
-        <!-- Center wrapper -->
-        <div class="stats-wrapper2">
-          <div class="stats-grid2">
-            
-            <!-- Total Pengunjung -->
-            <div class="stat-card2 text-center">
-              <i class="fas fa-user-friends"></i>
-              <h3 class="stat-number2" id="realtimeVisitors">0</h3>
-              <p class="stat-label2">Pengunjung Online</p>
-            </div>
-
-            <!-- Total Pageviews -->
-            <div class="stat-card2 text-center">
-              <i class="fas fa-file-alt"></i>
-              <h3 class="stat-number2" id="todayVisitors">0</h3>
-              <p class="stat-label2">Pengunjung Hari Ini</p>
-            </div>
-
-            <!-- Pengunjung Hari Ini -->
-            <div class="stat-card2 text-center">
-              <i class="fas fa-calendar-day"></i>
-              <h3 class="stat-number2" id="monthVisitors">0</h3>
-              <p class="stat-label2">Pengunjung 30 Hari Terakhir</p>
-            </div>
-
-          </div>
-        </div>
-        <!-- End Center wrapper -->
-      <!-- SCRIPT -->
-
-<script>
-  const API_KEY = "AIzaSyAIm-o2MGpc_gi5CnwSz06F_th8u4BwC7g"; // Ganti dengan API Key
-  const PROPERTY_ID = "502268477"; // Ganti dengan GA4 Property ID
-
-  gapi.load("client", init);
-
-  async function init() {
-    await gapi.client.init({
-      apiKey: API_KEY,
-      discoveryDocs: ["https://analyticsdata.googleapis.com/$discovery/rest?version=v1beta"],
-    });
-
-    loadRealtime();
-    loadToday();
-    load30Days();
-  }
-
-  // Realtime (pengunjung aktif)
-  async function loadRealtime() {
-    const res = await gapi.client.analyticsdata.properties.runRealtimeReport({
-      property: "properties/" + PROPERTY_ID,
-      requestBody: {
-        metrics: [{ name: "activeUsers" }]
-      }
-    });
-    document.getElementById("realtimeVisitors").textContent =
-      res.result.rows ? res.result.rows[0].metricValues[0].value : 0;
-  }
-
-  // Hari ini
-  async function loadToday() {
-    const res = await gapi.client.analyticsdata.properties.runReport({
-      property: "properties/" + PROPERTY_ID,
-      requestBody: {
-        dateRanges: [{ startDate: "today", endDate: "today" }],
-        metrics: [{ name: "totalUsers" }]
-      }
-    });
-    document.getElementById("todayVisitors").textContent =
-      res.result.rows ? res.result.rows[0].metricValues[0].value : 0;
-  }
-
-  // 30 hari terakhir
-  async function load30Days() {
-    const res = await gapi.client.analyticsdata.properties.runReport({
-      property: "properties/" + PROPERTY_ID,
-      requestBody: {
-        dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
-        metrics: [{ name: "totalUsers" }]
-      }
-    });
-    document.getElementById("monthVisitors").textContent =
-      res.result.rows ? res.result.rows[0].metricValues[0].value : 0;
-  }
-</script>
-
-      </div>
-    </div>
-  </div>
-</div>
    
 <style>
 
