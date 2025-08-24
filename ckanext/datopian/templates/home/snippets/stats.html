@@ -6,26 +6,33 @@
 
   <div class="stats-grid">
 
-    <!-- Dataset Card -->
-    <a href="{{ h.url_for('dataset.search') }}" class="stat-card dataset">
-      <i class="fa fa-database icon"></i>
-      <div class="stat-number" data-count="{{ stats.dataset_count }}">0</div>
-      <div class="stat-label">{{ _('Dataset Tersedia') if stats.dataset_count == 1 else _('Dataset Tersedia') }}</div>
-    </a>
+<!-- Dataset Card -->
+<a href="{{ h.url_for('dataset.search') }}" class="stat-card dataset">
+  <img src="/base/images/dataset.png" alt="Dataset Icon" class="icon" style="width:40px; height:40px;" />
+  <div class="stat-number" data-count="{{ stats.dataset_count }}">0</div>
+  <div class="stat-label">
+    {{ _('Dataset Tersedia') if stats.dataset_count == 1 else _('Dataset Tersedia') }}
+  </div>
+</a>
 
-    <!-- Organisasi Card -->
-    <a href="{{ h.url_for('organization.index') }}" class="stat-card organization">
-      <i class="fa fa-building icon"></i>
-      <div class="stat-number" data-count="{{ stats.organization_count }}">0</div>
-      <div class="stat-label">{{ _('OPD Terhubung') if stats.organization_count == 1 else _('OPD Terhubung') }}</div>
-    </a>
+<!-- Organisasi Card -->
+<a href="{{ h.url_for('organization.index') }}" class="stat-card organization">
+  <img src="/base/images/opd.png" alt="Organisasi Icon" class="icon" style="width:40px; height:40px;" />
+  <div class="stat-number" data-count="{{ stats.organization_count }}">0</div>
+  <div class="stat-label">
+    {{ _('OPD Terhubung') if stats.organization_count == 1 else _('OPD Terhubung') }}
+  </div>
+</a>
 
-    <!-- Kategori Card -->
-    <a href="{{ h.url_for('group.index') }}" class="stat-card category">
-      <i class="fa fa-tags icon"></i>
-      <div class="stat-number" data-count="{{ stats.group_count }}">0</div>
-      <div class="stat-label">{{ _('Kategori') if stats.group_count == 1 else _('Kategori') }}</div>
-    </a>
+<!-- Kategori Card -->
+<a href="{{ h.url_for('group.index') }}" class="stat-card category">
+  <img src="/base/images/kategori.png" alt="Kategori Icon" class="icon" style="width:40px; height:40px;" />
+  <div class="stat-number" data-count="{{ stats.group_count }}">0</div>
+  <div class="stat-label">
+    {{ _('Kategori') if stats.group_count == 1 else _('Kategori') }}
+  </div>
+</a>
+
 
   </div>
 </div>
