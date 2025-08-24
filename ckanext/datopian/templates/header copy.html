@@ -3,10 +3,10 @@
   <div class="container">
 
     <!-- 🔹 Baris atas: Logo + Toggle -->
-    <div class="header-top d-flex align-items-center justify-content-between">
+    <div class="header-top">
       
       <!-- Logo -->
-      <hgroup class="{{ g.header_class }} site-logo mb-0">
+      <hgroup class="{{ g.header_class }} site-logo">
         {% if g.site_logo %}
           <a class="logo" href="{{ h.url_for('home.index') }}">
             <img src="{{ h.url_for_static_or_external(g.site_logo) }}" alt="{{ g.site_title }}" />
@@ -173,25 +173,6 @@
   @media (min-width: 769px) {
     .mobile-user-menu { display: none !important; }
   }
-
-  /* pastikan logo + toggle selalu sejajar */
-.header-top {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  width: 100%;
-}
-
-.site-logo img {
-  max-height: 38px;
-}
-
-.navbar-toggle {
-  margin: 0 !important;
-  padding: 6px 10px !important;
-  font-size: 22px !important;
-  color: #fff !important;
-}
 
 </style>
 
