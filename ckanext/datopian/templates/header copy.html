@@ -177,6 +177,15 @@
 </style>
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Ambil link OPD / organization.index
+  const opdLink = document.querySelector('ul.nav a[href*="/organization"]');
+  if(opdLink) {
+    opdLink.setAttribute('title', 'Organisasi Perangkat Daerah');
+  }
+});
+
+<script>
   window.addEventListener("scroll", function() {
     var header = document.querySelector("header.masthead");
     if (header) {
