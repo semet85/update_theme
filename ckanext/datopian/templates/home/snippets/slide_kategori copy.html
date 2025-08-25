@@ -7,7 +7,7 @@
           <p class="text-center">{{ _('Tidak ada kategori yang ditemukan.') }}</p>
         {% else %}
         <div class="group-carousel">
-            
+          <button class="carousel-btn left-btn">&#10094;</button>
           <div class="carousel-track-wrapper">
             <div class="carousel-track">
               {% for group in groups %}
@@ -29,21 +29,7 @@
               {% endfor %}
             </div>
           </div>
-            <button class="carousel-btn left-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
-                        <path d="m12 19-7-7 7-7"></path>
-                        <path d="M19 12H5"></path>
-                        </svg>
-                    <span class="sr-only">Previous slide</span>
-                </button>
-                
-            <button class="carousel-btn right-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
-                    <path d="m12 5 7 7-7 7"></path>
-                    <path d="M5 12h14"></path>
-                </svg>
-                <span class="sr-only">Next slide</span>
-            </button>
+          <button class="carousel-btn right-btn">&#10095;</button>
         </div>
         {% endif %}
 
@@ -75,41 +61,27 @@
           object-fit: cover;
           border-radius: 5px;
         }
-        /* Tombol carousel */
         .carousel-btn {
-          display: flex;
-          align-items: center;
-          justify-content: center;
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          height: 2rem;
-          width: 2rem;
-          border-radius: 9999px;
-          background: var(--background, #fff);
-          border: 1px solid var(--input, #ccc);
-          box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+          background: rgba(0,0,0,0.5);
+          color: #fff;
+          border: none;
+          font-size: 24px;
+          padding: 5px 10px;
           cursor: pointer;
-          transition: background 0.2s, color 0.2s;
           z-index: 10;
-          gap: 0.5rem;
-          text-align: center;
-        }
-
-        .carousel-btn svg {
-        pointer-events: none;
-        width: 1rem;
-        height: 1rem;
-        flex-shrink: 0;
+          transition: color 0.2s ease-in-out; /* Tambahkan transisi untuk efek yang lebih halus */
         }
 
         .carousel-btn:hover {
-        background: var(--accent, #f0f0f0);
-        color: var(--accent-foreground, #000);
+          color: rgba(0, 0, 0, 0.5); /* Warna simbol panah menjadi hitam semi-transparan saat hover */
+          background: rgba(0,0,0,0.7); /* Tambahkan sedikit perubahan pada background saat hover (opsional) */
         }
 
-        .left-btn { left: -3rem; }
-        .right-btn { right: -3rem; }
+        .left-btn { left: 5px; }
+        .right-btn { right: 5px; }
 
         /* Responsive */
         @media(max-width: 768px) {
