@@ -1,7 +1,36 @@
 {% block header_wrapper %}
 <header class="navbar navbar-static-top masthead">
   <div class="container">
-    <div class="navbar-right" style="display: flex; align-items: center; gap: 15px;">
+    
+
+    <!-- Logo -->
+    <hgroup class="{{ g.header_class }} navbar-left">
+      {% if g.site_logo %}
+        <a class="logo" href="{{ h.url_for('home.index') }}">
+          <img src="{{ h.url_for_static_or_external(g.site_logo) }}" alt="{{ g.site_title }}" />
+        </a>
+      {% else %}
+        <h1><a href="{{ h.url_for('home.index') }}">{{ g.site_title }}</a></h1>
+      {% endif %}
+
+      <button data-target="#main-navigation-toggle" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="fa fa-bars"></span>
+      </button>
+    </hgroup>
+
+    <!-- Navigation -->
+    <div class="collapse navbar-collapse" id="main-navigation-toggle">
+      <nav class="section navigation">
+        <ul class="nav nav-pills">
+          {{ h.build_nav_main(
+            ('dataset.search', _('Dataset')),
+            ('organization.index', _('OPD')),
+            ('group.index', _('Kategori')),
+            ('home.about', _('Tentang'))
+          ) }}
+
+        <div class="navbar-right" style="display: flex; align-items: center; gap: 15px;">
       {% if c.userobj %}
         <div class="account avatar authed" data-module="me" data-me="{{ c.userobj.id }}">
         <ul class="list-unstyled" style="margin-bottom:0;">
@@ -35,32 +64,6 @@
       
     </div>
 
-    <!-- Logo -->
-    <hgroup class="{{ g.header_class }} navbar-left">
-      {% if g.site_logo %}
-        <a class="logo" href="{{ h.url_for('home.index') }}">
-          <img src="{{ h.url_for_static_or_external(g.site_logo) }}" alt="{{ g.site_title }}" />
-        </a>
-      {% else %}
-        <h1><a href="{{ h.url_for('home.index') }}">{{ g.site_title }}</a></h1>
-      {% endif %}
-
-      <button data-target="#main-navigation-toggle" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="fa fa-bars"></span>
-      </button>
-    </hgroup>
-
-    <!-- Navigation -->
-    <div class="collapse navbar-collapse" id="main-navigation-toggle">
-      <nav class="section navigation">
-        <ul class="nav nav-pills">
-          {{ h.build_nav_main(
-            ('dataset.search', _('Dataset')),
-            ('organization.index', _('OPD')),
-            ('group.index', _('Kategori')),
-            ('home.about', _('Tentang'))
-          ) }}
           {% if not c.userobj %}
             <li>{% link_for _('Login'), named_route='user.login' %}</li>
           {% endif %}
