@@ -2,37 +2,9 @@
 <header class="navbar navbar-static-top masthead">
   <div class="container">
     <div class="navbar-right" style="display: flex; align-items: center; gap: 15px;">
-      
-      <button data-target="#main-navigation-toggle" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="fa fa-bars"></span>
-      </button>
-    </div>
-
-    <!-- Logo -->
-    <hgroup class="{{ g.header_class }} navbar-left">
-      {% if g.site_logo %}
-        <a class="logo" href="{{ h.url_for('home.index') }}">
-          <img src="{{ h.url_for_static_or_external(g.site_logo) }}" alt="{{ g.site_title }}" />
-        </a>
-      {% else %}
-        <h1><a href="{{ h.url_for('home.index') }}">{{ g.site_title }}</a></h1>
-      {% endif %}
-    </hgroup>
-
-    <!-- Navigation -->
-    <div class="collapse navbar-collapse" id="main-navigation-toggle">
-      <nav class="section navigation">
-        <ul class="nav nav-pills">
-          {{ h.build_nav_main(
-            ('dataset.search', _('Dataset')),
-            ('organization.index', _('OPD')),
-            ('group.index', _('Kategori')),
-            ('home.about', _('Tentang'))
-          ) }}
-
-          {% if c.userobj %}
-        
+      {% if c.userobj %}
+        <div class="account avatar authed" data-module="me" data-me="{{ c.userobj.id }}">
+        <ul class="list-unstyled" style="margin-bottom:0;">
           <li>
             <a href="{{ h.url_for('user.read', id=c.userobj.name) }}" class="image">
               {{ h.user_image((c.user if c and c.user else ''), size=22) }}
@@ -56,9 +28,39 @@
 
           <li><a href="{{ h.url_for('dashboard.index') }}"><i class="fa fa-tachometer"></i> Dashboard</a></li>
           <li><a href="{{ h.url_for('/user/_logout') }}"><i class="fa fa-sign-out"></i> Keluar</a></li>
-        
-          {% endif %}  
+        </ul>
 
+        </div>
+      {% endif %}
+      
+    </div>
+
+    <!-- Logo -->
+    <hgroup class="{{ g.header_class }} navbar-left">
+      {% if g.site_logo %}
+        <a class="logo" href="{{ h.url_for('home.index') }}">
+          <img src="{{ h.url_for_static_or_external(g.site_logo) }}" alt="{{ g.site_title }}" />
+        </a>
+      {% else %}
+        <h1><a href="{{ h.url_for('home.index') }}">{{ g.site_title }}</a></h1>
+      {% endif %}
+
+      <button data-target="#main-navigation-toggle" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="fa fa-bars"></span>
+      </button>
+    </hgroup>
+
+    <!-- Navigation -->
+    <div class="collapse navbar-collapse" id="main-navigation-toggle">
+      <nav class="section navigation">
+        <ul class="nav nav-pills">
+          {{ h.build_nav_main(
+            ('dataset.search', _('Dataset')),
+            ('organization.index', _('OPD')),
+            ('group.index', _('Kategori')),
+            ('home.about', _('Tentang'))
+          ) }}
           {% if not c.userobj %}
             <li>{% link_for _('Login'), named_route='user.login' %}</li>
           {% endif %}
